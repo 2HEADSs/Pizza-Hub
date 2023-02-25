@@ -4,7 +4,7 @@ const {
     Types: { ObjectId },
 } = require("mongoose");
 
-const URL_PATTERT = /https?:\/\/./i;
+const URL_PATTERN = /https?:\/\/./i;
 
 const pizzaSchema = new Schema({
     name: {
@@ -42,6 +42,16 @@ const pizzaSchema = new Schema({
         minlength: [10, "Recipe must be minimum one characters!"],
         maxlength: [500, "Recipe must be maximum hundred characters!"],
     },
+    img: {
+        type: String,
+        validate: {
+            validator: (value) => URL_PATTERN.test(value),
+            message: "Invalid URL, must start with HTTP/HTTPS",
+        },
+    },
+    _ownerId: { type: ObjectId, ref: "User", required: true },
+    likes: { type: Array, default: [], required: false },
 });
 
-
+const Pizza = model("Pizza", pizzaSchema);
+module.exports = Bike;
