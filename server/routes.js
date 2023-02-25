@@ -6,7 +6,7 @@ router.get("/", (req, res) => {
 
 
 router.use('/pizza', pizzaController)
-router.use('/auth', authController)
+// router.use('/auth', authController)
 
 
 module.exports =router
