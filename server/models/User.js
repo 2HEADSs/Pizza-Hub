@@ -7,7 +7,7 @@ const userSchema = new Schema({
         type: String,
         required: true,
         unique: true,
-        minlength: [5, "Username must be at least 5 characters!"],
+        minlength: [3, "Username must be at least 3 characters!"],
         maxlength: [10, "Username cannot have more than 10 characters!"],
     },
     hashedPassword: { type: String, required: true },
