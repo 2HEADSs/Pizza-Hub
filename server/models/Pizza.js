@@ -21,8 +21,8 @@ const pizzaSchema = new Schema({
     ingrediants: {
         type: String,
         required: true,
-        minlength: [1, "Name must be minimum one characters!"],
-        maxlength: [15, "Name must be maximum fifteen characters!"],
+        minlength: [10, "Name must be minimum one characters!"],
+        maxlength: [150, "Ingrediants must be maximum hundred characters!"],
     },
     prepTime: {
         type: Number,
@@ -35,6 +35,12 @@ const pizzaSchema = new Schema({
         required: true,
         min: [0, "Cooking time should be positive number"],
         max: [60, "You are hungry, you don't have eternity"],
+    },
+    recipe: {
+        type: String,
+        required: true,
+        minlength: [10, "Recipe must be minimum one characters!"],
+        maxlength: [500, "Recipe must be maximum hundred characters!"],
     },
 });
 
