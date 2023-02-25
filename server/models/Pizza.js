@@ -54,4 +54,4 @@ const pizzaSchema = new Schema({
 });
 
 const Pizza = model("Pizza", pizzaSchema);
-module.exports = Bike;
+module.exports = Pizza;

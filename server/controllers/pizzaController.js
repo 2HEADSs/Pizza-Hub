@@ -10,3 +10,16 @@ pizzaController.get("/", async (req, res) => {
         res.status(400).json({ error: error.message });
     }
 });
+
+pizzaController.post("/", async (req, res) => {
+    try {
+        const pizza = await getAll();
+        res.status(200).json(pizza);
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+});
+
+module.exports = {
+    pizzaController
+}

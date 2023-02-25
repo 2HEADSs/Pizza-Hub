@@ -3,6 +3,7 @@ const app = express();
 // const cors =
 const { connectionString } = require("./connectionString");
 const { mongoose } = require("mongoose");
+// mongoose.set("strictQuery", false);
 const router = require("./routes");
 
 const initDB = () => mongoose.connect(connectionString);
