@@ -39,7 +39,7 @@ const pizzaSchema = new Schema({
     recipe: {
         type: String,
         required: true,
-        minlength: [10, "Recipe must be minimum one characters!"],
+        minlength: [10, "Recipe must be minimum ten characters!"],
         maxlength: [500, "Recipe must be maximum hundred characters!"],
     },
     img: {
@@ -49,7 +49,7 @@ const pizzaSchema = new Schema({
             message: "Invalid URL, must start with HTTP/HTTPS",
         },
     },
-    _ownerId: { type: ObjectId, ref: "User", required: true },
+    // _ownerId: { type: ObjectId, ref: "User", required: true },
     likes: { type: Array, default: [], required: false },
 });
 
