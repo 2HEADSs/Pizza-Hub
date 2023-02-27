@@ -11,7 +11,7 @@ const pizzaSchema = new Schema({
         type: String,
         required: true,
         minlength: [1, "Name must be minimum one characters!"],
-        maxlength: [15, "Name must be maximum fifteen characters!"],
+        maxlength: [20, "Name must be maximum twenty characters!"],
     },
     type: {
         type: String,
