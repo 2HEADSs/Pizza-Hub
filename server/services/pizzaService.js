@@ -5,6 +5,7 @@ async function getAll() {
 }
 
 async function create(data) {
+    //TODO add user(creator) to pizza
     return Pizza.create(data)
 };
 
