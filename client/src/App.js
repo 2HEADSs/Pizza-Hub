@@ -1,6 +1,6 @@
 import './App.css';
 
-import { PizzaList } from "./components/pizza-list/PizzaList";
+// import { PizzaList } from "./components/pizza-list/PizzaList";
 
 function App() {
 
@@ -8,7 +8,7 @@ function App() {
 
   return (
     <div className="App">
-      <PizzaList/>
+      {/* <PizzaList/> */}
     </div>
   );
 }

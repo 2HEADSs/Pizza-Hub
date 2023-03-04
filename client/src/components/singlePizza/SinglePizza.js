@@ -1,5 +1,4 @@
 export const SinglePiza = ({ pizza }) => {
-    console.log(pizza);
     return (
         <div>
             <p> {pizza._id}</p>
