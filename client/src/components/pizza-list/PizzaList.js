@@ -1,15 +1,19 @@
 import { useEffect, useState } from "react";
 import * as pizzaService from '../../pizza-services'
+import { SinglePiza } from "../singlePizza/SinglePizza";
 export const PizzaList = () => {
     const [allPizas, setPizza] = useState([]);
     useEffect(() => {
         pizzaService.getAll()
             .then(pizzas => setPizza(pizzas))
-        console.log(allPizas);
     }, [])
+    console.log(allPizas);
+
     return (
         <div>
-            <h1>Header</h1>
+            {allPizas.map(pizza => 
+                <SinglePiza pizza={pizza} key={pizza._id}/>
+            )}
         </div>
     )
 }
