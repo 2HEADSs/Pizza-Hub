@@ -44,6 +44,7 @@ pizzaController.get('/:id', async (req, res) => {
 
 pizzaController.post("/", async (req, res) => {
     try {
+        // const TODO data = Object.assign({ _ownerId: req.user._id }, req.body)
         const pizza = await create(req.body);
         res.json(pizza);
         // res.status(200).json(pizza);
