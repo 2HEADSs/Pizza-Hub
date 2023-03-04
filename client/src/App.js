@@ -1,4 +1,6 @@
+import { Fragment } from 'react'; 
 import './App.css';
+import { Header } from './components/Header/Header';
 
 // import { PizzaList } from "./components/pizza-list/PizzaList";
 
@@ -7,9 +9,11 @@ function App() {
 
 
   return (
-    <div className="App">
-      {/* <PizzaList/> */}
-    </div>
+<Fragment>
+  
+<Header></Header>
+</Fragment>
+
   );
 }
 

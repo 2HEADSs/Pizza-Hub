@@ -1,0 +1,21 @@
+.header {
+    height: 100px;
+    display: flex;
+    padding: 20px 80px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  header img {
+    height: 60px;
+  }
+  
+  header nav ul {
+    display: flex;
+    gap: 20px;
+  }
+  header nav ul li a {
+    color: #54546d;
+    font-weight: 600;
+    font-size: 20px;
+  }
