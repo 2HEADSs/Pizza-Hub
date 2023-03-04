@@ -1,5 +1,4 @@
-
-// import './App.css';
+import './App.css';
 
 import { PizzaList } from "./components/pizza-list/PizzaList";
 
