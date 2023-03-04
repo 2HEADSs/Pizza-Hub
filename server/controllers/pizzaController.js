@@ -22,6 +22,22 @@ pizzaController.post("/", async (req, res) => {
     }
 });
 
+
+
+pizzaController.get('/:id', async (req, res) => {
+    try {
+        const pizza = await getById(req.params.id)
+        if (!pizza) {
+            throw new Error('Pizza does not exist')
+
+        }
+        return res.status(200).json(bike)
+    } catch (error) {
+        res.status(400).json({ error })
+
+    }
+});
+
 module.exports = {
     pizzaController
 }
