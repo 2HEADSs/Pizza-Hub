@@ -14,6 +14,7 @@ async function startServer() {
     app.use(express.json());
     app.use(cors())
     //session
+    // trimbody
     app.use(router);
     app.listen("3030", () => console.log("REST listening on port 3030"));
 }
