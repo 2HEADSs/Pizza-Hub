@@ -93,7 +93,7 @@
     position: absolute;
     top: 10%;
     right: 8%;
-    width: 30%;
+    width: 40%;
     text-align: center;
 }
 
@@ -101,23 +101,27 @@
 
 .waviy {
     position: absolute;
-    top: 20%;
-    right: 8%;
-    width: 30%;
+    top: 10%;
+    right: 5%;
+    width: 45%;
     text-align: center;
   }
-  .waviy span {
+  .waviy span:not(.hashtag) {
     position: relative;
     display: inline-block;
     font-size: 60px;
     font-weight: 400;
-    color: rgb(60, 142, 12);
+    color: rgb(81, 191, 17);
     text-transform: uppercase;
-    animation: flip 5s infinite;
-    animation-delay: calc(.3s * var(--i))
+    animation: flip 2s infinite;
+    animation-delay: calc(.2s * var(--i))
   }
   @keyframes flip {
     0%,80% {
       transform: rotateY(360deg) 
     }
+  }
+  .hashtag{
+    color: white;
+    font-size: 42px;
   }

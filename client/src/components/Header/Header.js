@@ -33,12 +33,12 @@ export const Header = () => {
                         <span style={{ "--i": 4 }}>m</span>
                         <span style={{ "--i": 5 }}>i</span>
                         <span style={{ "--i": 6 }}>t</span>
-                        <span style={{ "--i": 7 }}>#</span>
+                        <span className='hashtag' style={{ "--i": 7 }}>#</span>
                         <span style={{ "--i": 8 }}>y</span>
                         <span style={{ "--i": 9 }}>o</span>
                         <span style={{ "--i": 10 }}>u</span>
                         <span style={{ "--i": 11 }}>r</span>
-                        <span style={{ "--i": 12 }}>#</span>
+                        <span className='hashtag' style={{ "--i": 12 }}>#</span>
                         <span style={{ "--i": 13 }}>p</span>
                         <span style={{ "--i": 14 }}>i</span>
                         <span style={{ "--i": 15 }}>z</span>
