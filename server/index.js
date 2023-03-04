@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-// const cors =
+const cors = require('./middlewares/cors')
 const { connectionString } = require("./connectionString");
 const { mongoose } = require("mongoose");
 // mongoose.set("strictQuery", false);
@@ -12,7 +12,8 @@ startServer();
 async function startServer() {
     initDB();
     app.use(express.json());
-
+    app.use(cors())
+    //session
     app.use(router);
     app.listen("3030", () => console.log("REST listening on port 3030"));
 }
