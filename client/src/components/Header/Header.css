@@ -25,17 +25,12 @@
 
 .name {
     font-size: 42px;
-    
+
 }
-.name span{
+
+
+.name span {
     color: #087b29;
-}
-
-
-
-
-
-.name span{
     cursor: pointer;
     margin: auto;
     font-size: 5vmin;
@@ -75,8 +70,54 @@
     gap: 20px;
 }
 
-header nav ul li a {
+.navigation ul li a {
     color: #087b29;
     font-weight: 600;
     font-size: 20px;
 }
+
+
+.top-img {
+    position: relative;
+    margin: 0 auto;
+    height: 600px;
+    width: 80%;
+    background-image: url("../../../public/static/intro-1662667729.jpg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-size: 110%;
+}
+.headinh-wrapper{
+    position: absolute;
+    top: 10%;
+    right: 8%;
+    width: 30%;
+    text-align: center;
+}
+
+
+
+.waviy {
+    position: absolute;
+    top: 20%;
+    right: 8%;
+    width: 30%;
+    text-align: center;
+  }
+  .waviy span {
+    position: relative;
+    display: inline-block;
+    font-size: 60px;
+    font-weight: 400;
+    color: rgb(60, 142, 12);
+    text-transform: uppercase;
+    animation: flip 5s infinite;
+    animation-delay: calc(.3s * var(--i))
+  }
+  @keyframes flip {
+    0%,80% {
+      transform: rotateY(360deg) 
+    }
+  }
