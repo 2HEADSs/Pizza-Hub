@@ -10,7 +10,6 @@ function App() {
 
   return (
 <Fragment>
-  
 <Header></Header>
 </Fragment>
 

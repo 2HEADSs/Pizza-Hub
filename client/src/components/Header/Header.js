@@ -6,18 +6,18 @@ export const Header = () => {
                 <div className="pizza-logo"></div>
                 <p className='name'>Pizza <span>HUB</span></p>
             </div>
-            <nav>
+            <nav className='navigation'>
                 <ul role="list">
-                    <li>
+                    <li className='link-nav'>
                         <a>ЗА НАС</a>
                     </li>
-                    <li>
+                    <li className='link-nav'>
                         <a>ФОРУМ</a>
                     </li>
-                    <li>
+                    <li className='link-nav'>
                         <a>БЛОГ</a>
                     </li>
-                    <li>
+                    <li className='link-nav'>
                         <a>КОНТАКТИ</a>
                     </li>
                 </ul>

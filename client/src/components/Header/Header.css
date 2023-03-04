@@ -6,15 +6,15 @@
     padding: 20px 80px;
     justify-content: space-between;
     align-items: center;
-  }
-  
-  .logo-name-wrapper{
+}
+
+.logo-name-wrapper {
     display: flex;
     align-items: center;
     gap: 50px;
-  }
+}
 
-  .pizza-logo {
+.pizza-logo {
     height: 100px;
     width: 100px;
     background-image: url("../../../public/static/pizza-logo-42816D88BE-seeklogo.com.png");
@@ -25,55 +25,58 @@
 
 .name {
     font-size: 42px;
+    
+}
+.name span{
+    color: #087b29;
 }
 
 
-/* .name span{ */
-        /* --s: 0.2em;   the thickness of the line */
-        /* --c: #ff1e05; the color */
-        /*  */
-        /* color: #0000; */
-        /* padding-bottom: var(--s); */
-        /* background:  */
-          /* linear-gradient(90deg,var(--c) 50%,#000 0) calc(100% - var(--_p,0%))/200% 100%, */
-          /* linear-gradient(var(--c) 0 0) 0% 100%/var(--_p,0%) var(--s) no-repeat; */
-        /* -webkit-background-clip: text,padding-box; */
-                /* background-clip: text,padding-box; */
-        /* transition: 0.5s; */
-/* } */
-/* .name:hover{--_p: 100%} */
-  
 
 
 
-.name {
+.name span{
     cursor: pointer;
     margin: auto;
     font-size: 5vmin;
     font-weight: 300;
-    transition: font-weight 250ms ease-in-out;
-  }
-  
-  .name:hover {
+    transition: font-weight 350ms ease-in-out;
+}
+
+.name span:hover {
     font-weight: 900;
-  }
+}
+
+
+.link-nav {
+    --s: 0.2em;
+    /* the thickness of the line */
+    --c: #c16503;
+    /* the color */
+
+    color: #0000;
+    padding-bottom: var(--s);
+    background:
+        linear-gradient(90deg, var(--c) 50%, #000 0) calc(100% - var(--_p, 0%))/200% 100%,
+        linear-gradient(var(--c) 0 0) 0% 100%/var(--_p, 0%) var(--s) no-repeat;
+    -webkit-background-clip: text, padding-box;
+    background-clip: text, padding-box;
+    transition: 0.5s;
+}
+
+.link-nav:hover {
+    --_p: 100%
+}
 
 
 
-
-
-
-
-
-
-
-
-  header nav ul {
+.navigation ul {
     display: flex;
     gap: 20px;
-  }
-  header nav ul li a {
-    color: #54546d;
+}
+
+header nav ul li a {
+    color: #087b29;
     font-weight: 600;
     font-size: 20px;
-  }
+}
