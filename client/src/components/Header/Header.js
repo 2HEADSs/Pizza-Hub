@@ -1,24 +1,27 @@
 import './Header.css'
 export const Header = () => {
     return (
-        <header>
-        <div className="pizza-logo"></div>
-        <nav>
-          <ul role="list">
-            <li>
-              <a>ЗА НАС</a>
-            </li>
-            <li>
-              <a>ФОРУМ</a>
-            </li>
-            <li>
-              <a>БЛОГ</a>
-            </li>
-            <li>
-              <a>КОНТАКТИ</a>
-            </li>
-          </ul>
-        </nav>
-      </header>
+        <header className='header'>
+            <div className="logo-name-wrapper">
+                <div className="pizza-logo"></div>
+                <p className='name'>Pizza <span>HUB</span></p>
+            </div>
+            <nav>
+                <ul role="list">
+                    <li>
+                        <a>ЗА НАС</a>
+                    </li>
+                    <li>
+                        <a>ФОРУМ</a>
+                    </li>
+                    <li>
+                        <a>БЛОГ</a>
+                    </li>
+                    <li>
+                        <a>КОНТАКТИ</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
     )
 }
