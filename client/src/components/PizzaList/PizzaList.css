@@ -1,0 +1,14 @@
+.last-added{
+    margin: 30px auto;
+    width: 80%;
+    height: 400px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-wrapper{
+    display: flex;
+    gap: 30px;
+}

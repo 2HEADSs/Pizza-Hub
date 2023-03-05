@@ -1,3 +1,4 @@
+import './PizzaList.css'
 import { useEffect, useState } from "react";
 import * as pizzaService from '../../pizza-services'
 import { SinglePiza } from "../singlePizza/SinglePizza";
@@ -8,13 +9,15 @@ export const PizzaList = () => {
         pizzaService.getAll()
             .then(pizzas => setPizza(pizzas))
     }, [])
-    console.log(allPizas);
 
     return (
-        <section className="las-added">
-            {allPizas.map(pizza => 
-                <SinglePiza pizza={pizza} key={pizza._id}/>
-            )}
+        <section className="last-added">
+            <h2>Last added</h2>
+            <article className='card-wrapper'>
+                {allPizas.slice(-5 ).map(pizza =>
+                    <SinglePiza pizza={pizza} key={pizza._id} />
+                )}
+            </article>
         </section>
     )
 }
