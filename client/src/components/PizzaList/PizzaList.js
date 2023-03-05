@@ -11,10 +11,10 @@ export const PizzaList = () => {
     console.log(allPizas);
 
     return (
-        <div>
+        <section className="las-added">
             {allPizas.map(pizza => 
                 <SinglePiza pizza={pizza} key={pizza._id}/>
             )}
-        </div>
+        </section>
     )
 }
