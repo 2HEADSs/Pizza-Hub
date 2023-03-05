@@ -14,7 +14,7 @@ function App() {
     <Fragment>
       <Header/>
       <Routes>
-      <Route path='/' element= {PizzaList}/>
+      <Route path='/' element= {<PizzaList/>}/>
       </Routes>
       <Footer/>
     </Fragment>
