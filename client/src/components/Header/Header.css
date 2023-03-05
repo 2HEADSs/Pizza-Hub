@@ -60,7 +60,8 @@
 }
 
 .link-nav:hover {
-    --_p: 100%
+    --_p: 100%;
+    cursor: pointer;
 }
 
 
