@@ -79,6 +79,7 @@
 
 
 .top-img {
+    border-radius: 18px;
     position: relative;
     margin: 0 auto;
     height: 400px;
