@@ -1,4 +1,5 @@
 const { pizzaController } = require("./controllers/pizzaController");
+const {authController} = require("./controllers/authController")
 
 const router = require("express").Router();
 
@@ -7,6 +8,6 @@ router.get("/", (req, res) => {
 });
 
 router.use('/pizza', pizzaController);
-router.use('/auth', authController)
+// router.use('/auth', authController)
 
 module.exports = router;

@@ -1,5 +1,5 @@
 const authController = require('express').Router();
-const { login, register } = require('../service/userService');
+const { login, register } = require('../services/userService')
 
 authController.post('/register', async (req, res) => {
     try {
