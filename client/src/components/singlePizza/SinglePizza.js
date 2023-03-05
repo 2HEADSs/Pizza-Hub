@@ -1,13 +1,10 @@
 export const SinglePiza = ({ pizza }) => {
     return (
-        <div>
-            <p> {pizza._id}</p>
-            <p> {pizza.name}</p>
+        <article>
+            <img src={pizza.img} alt="" />
             <p> {pizza.type}</p>
-            <p> {pizza.recipe}</p>
-            <p> {pizza._id}</p>
-            <p> {pizza._id}</p>
-            <p>{pizza._id}</p>
-        </div>
+            <p> {pizza.name}</p>
+        </article>
+
     )
 }
