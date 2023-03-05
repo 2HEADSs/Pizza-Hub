@@ -9,17 +9,23 @@ export const Header = () => {
                 </div>
                 <nav className='navigation'>
                     <ul role="list">
-                        <li className='link-nav'>
-                            <a>ЗА НАС</a>
+                    <li className='link-nav'>
+                            <a>Home</a>
                         </li>
                         <li className='link-nav'>
-                            <a>ФОРУМ</a>
+                            <a>All Repo's</a>
                         </li>
                         <li className='link-nav'>
-                            <a>БЛОГ</a>
+                            <a>My Repo's</a>
                         </li>
                         <li className='link-nav'>
-                            <a>КОНТАКТИ</a>
+                            <a>Add Pizza</a>
+                        </li>
+                        <li className='link-nav'>
+                            <a>Register</a>
+                        </li>
+                        <li className='link-nav'>
+                            <a>Login</a>
                         </li>
                     </ul>
                 </nav>
