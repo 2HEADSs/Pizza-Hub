@@ -1,0 +1,28 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css");
+
+.footer {
+    position: absolute;
+    bottom: 0px;
+    width: 80%;
+    left: 10%;
+    margin-top: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    background: black;
+    padding: 16px 80px;
+    color: white;
+    font-weight: lighter;
+}
+
+.icons{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.icons a i {
+    color: white;
+    font-size: 24px;
+  }
