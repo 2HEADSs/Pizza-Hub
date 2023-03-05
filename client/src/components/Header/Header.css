@@ -81,7 +81,7 @@
 .top-img {
     position: relative;
     margin: 0 auto;
-    height: 600px;
+    height: 400px;
     width: 80%;
     background-image: url("../../../public/static/intro-1662667729.jpg");
     background-position: center;
@@ -90,20 +90,14 @@
     overflow: hidden;
     background-size: 110%;
 }
-.headinh-wrapper{
-    position: absolute;
-    top: 10%;
-    right: 8%;
-    width: 40%;
-    text-align: center;
-}
+
 
 
 
 .waviy {
     position: absolute;
-    top: 10%;
-    right: 5%;
+    top: 8%;
+    right: 0%;
     width: 45%;
     text-align: center;
   }

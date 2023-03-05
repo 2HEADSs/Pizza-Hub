@@ -25,7 +25,6 @@ export const Header = () => {
                 </nav>
             </header>
             <section className='top-img'>
-                <div className="heading-wrapper">
                     <div className="waviy">
                         <span style={{ "--i": 1 }}>c</span>
                         <span style={{ "--i": 2 }}>o</span>
@@ -45,7 +44,7 @@ export const Header = () => {
                         <span style={{ "--i": 16 }}>z</span>
                         <span style={{ "--i": 17 }}>a</span>
                     </div>
-                </div>
+    
             </section>
         </>
     )
