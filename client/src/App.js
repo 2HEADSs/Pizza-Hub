@@ -3,9 +3,8 @@ import { Fragment } from 'react';
 import './App.css';
 import { Header } from './components/Header/Header';
 import {Footer} from './components/Footer/Footer';
+import { PizzaList } from './components/PizzaList/PizzaList';
 
-
-// import { PizzaList } from "./components/pizza-list/PizzaList";
 
 function App() {
 
@@ -15,7 +14,7 @@ function App() {
     <Fragment>
       <Header/>
       <Routes>
-
+      <Route path='/' element= {PizzaList}/>
       </Routes>
       <Footer/>
     </Fragment>

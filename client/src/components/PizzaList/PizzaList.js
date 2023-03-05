@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import * as pizzaService from '../../pizza-services'
 import { SinglePiza } from "../singlePizza/SinglePizza";
+
 export const PizzaList = () => {
     const [allPizas, setPizza] = useState([]);
     useEffect(() => {
