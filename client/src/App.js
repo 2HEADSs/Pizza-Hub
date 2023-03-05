@@ -4,6 +4,7 @@ import './App.css';
 import { Header } from './components/Header/Header';
 import {Footer} from './components/Footer/Footer';
 import { PizzaList } from './components/PizzaList/PizzaList';
+import { Login } from './components/Login/Login';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Header/>
       <Routes>
       <Route path='/' element= {<PizzaList/>}/>
+      <Route path='/login' element= {<Login/>}/>
       </Routes>
       <Footer/>
     </Fragment>
