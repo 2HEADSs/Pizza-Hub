@@ -6,6 +6,7 @@ export const SinglePiza = ({ pizza }) => {
             <div className='info-pizza-container'>
                 <p>Type: <span>{pizza.type}</span> </p>
                 <p>Name: <span>{pizza.name}</span> </p>
+                <button>View</button>
             </div>
         </article>
 

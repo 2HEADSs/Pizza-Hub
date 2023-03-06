@@ -3,21 +3,33 @@
     box-shadow: 0px 0px 11px 1px rgba(0,0,0,0.75);
     border-radius: 8px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
+.single-pizza img{
+    height: 55%;
+}
+
 .info-pizza-container{
+    height: 40%;
     padding: 0px 8px;
-    margin-top: 20px;
     text-align: center;
     font-size: 20px;
     font-weight: 500;
+    position: relative;
 }
 .info-pizza-container p{
-    margin-bottom: 20px;
 }
 
 .info-pizza-container span{
     font-size: 22px;
     font-weight: bold;
     color: #087b29;
+}
 
+.info-pizza-container button{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0px;
 }
