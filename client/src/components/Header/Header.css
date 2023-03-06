@@ -70,7 +70,7 @@
     gap: 20px;
 }
 
-.navigation ul li a {
+.navigation ul li .link {
     color: #087b29;
     font-weight: 600;
     font-size: 20px;

@@ -4,7 +4,6 @@
     border-radius: 8px 8px 0px 0px;
     margin: 0 auto;
     width: 80%;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -13,6 +12,7 @@
     padding: 16px 80px;
     color: white;
     font-weight: lighter;
+    bottom: 0px;
 }
 
 .icons {

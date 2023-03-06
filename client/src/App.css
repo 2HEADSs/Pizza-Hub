@@ -37,9 +37,11 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
+  justify-content: space-between; */
 }
+
 
 /* A elements that don't have a class get default styles */
 a:not([class]) {
@@ -76,3 +78,10 @@ select {
     scroll-behavior: auto !important;
   }
 }
+#root{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
