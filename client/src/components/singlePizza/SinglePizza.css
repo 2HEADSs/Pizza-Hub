@@ -5,6 +5,7 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 .single-pizza img{
     height: 55%;
@@ -32,4 +33,6 @@
     left: 50%;
     transform: translateX(-50%);
     bottom: 0px;
+    margin-bottom: 6px;
+    padding: 0px 6px;
 }
