@@ -5,6 +5,7 @@ import { Header } from './components/Header/Header';
 import {Footer} from './components/Footer/Footer';
 import { PizzaList } from './components/PizzaList/PizzaList';
 import { Login } from './components/Login/Login';
+import { Catalog } from './components/Catalog/Catalog';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Routes>
       <Route path='/' element= {<PizzaList/>}/>
       <Route path='/login' element= {<Login/>}/>
+      <Route path='/catalog' element= {<Catalog/>}/>
       </Routes>
       <Footer/>
     </Fragment>
