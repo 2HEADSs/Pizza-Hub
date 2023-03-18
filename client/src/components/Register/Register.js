@@ -2,24 +2,16 @@ import './Register.css'
 
 export const Register = () => {
     return (
-        <div id="login-form-wrap">
+        <div className="register-form-wrap">
             <h2>Register</h2>
-            <form id="login-form">
-                <p>
-                    <input type="text" id="username" name="username" placeholder="Username" required/><i class="validation"><span></span><span></span></i>
-                </p>
-                <p>
-                    <input type="email" id="email" name="email" placeholder="Email Address" required/><i class="validation"><span></span><span></span></i>
-                </p>
-                <p>
-                    <input type="submit" id="login" value="Register"/>
-                </p>
+            <form className="register-form">
+                <input type="text" className="username" name="username" placeholder="Username" required />
+                <input type="email" className="email" name="email" placeholder="Email Address" required />
+                <input type="submit" className="login" value="Register" />
             </form>
-            <div id="already-have-account-wrapper">
-            {/* <div id="create-account-wrap"> */}
+            <div className="already-have-account-wrapper">
                 <p>Already have account? <a href="#">Sign Up</a></p>
-                </div>
             </div>
-
-            )
+        </div>
+    )
 } 
