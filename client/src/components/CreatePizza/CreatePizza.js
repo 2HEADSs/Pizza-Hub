@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import * as pizzaService from '../../services/pizza-services'
 
 import './CreatePizza.css'
 export const CreatePizza = () => {
@@ -11,9 +12,10 @@ export const CreatePizza = () => {
         img: '',
         recipe: ''
     });
-    const createPizzaHandler = (e) => {
+    const createPizzaHandler = async (e) => {
         e.preventDefault()
         console.log(pizzaData);
+        await pizzaService.create(pizzaData)
     }
 
     const addPizzaData = (e) => {
