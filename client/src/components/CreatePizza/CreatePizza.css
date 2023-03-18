@@ -70,7 +70,8 @@ textarea {
 .create-form>.recipe:focus,
 textarea:focus {
     border: 2px solid black;
-
+    color: black;
+    font-size: 18px;
 }
 
 input[type="submit"] {

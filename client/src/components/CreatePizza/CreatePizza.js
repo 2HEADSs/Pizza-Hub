@@ -6,7 +6,12 @@ export const CreatePizza = () => {
             <form className="create-form">
                 <input type="text" className="name" name="name" placeholder="Name of your pizza" />
                 <input type="text" className="type" name="type" placeholder="MUST BE DROPDOWN" />
-                <input type="text" className="ingrediants" name="ingrediants" placeholder="Write your ingrediants separete with comma: ',' " />
+                <input 
+                type="text" 
+                className="ingrediants" 
+                name="ingrediants"
+                    placeholder="Write your ingrediants separete with comma: ',' "
+                />
                 <input type="number" className="prepTime" name="prepTime" placeholder="Preptime" />
                 <input type="number" className="cookTime" name="cookTime" placeholder="Cooktime" />
                 <input type="text" className="img" name="img" placeholder="Add link with image " />

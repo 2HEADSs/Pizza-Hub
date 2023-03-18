@@ -52,10 +52,10 @@ input {
   background: none;
 }
 
-.login-form>.username:focus,
-.login-form>.email:focus,
-.login-form>.password:focus,
-.login-form>.repass:focus {
+.register-form>.username:focus,
+.register-form>.email:focus,
+.register-form>.password:focus,
+.register-form>.repass:focus {
   border: 2px solid black;
 
 }
