@@ -57,6 +57,8 @@ textarea {
 
 textarea {
     height: 10em;
+    font-family: "Open Sans", sans-serif;
+
 }
 
 .create-form>.name:focus,
