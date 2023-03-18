@@ -4,10 +4,7 @@ export const CreatePizza = () => {
         <div className="create-form-wrap">
             <h2>Create your precious </h2>
             <form className="create-form">
-                <input type="text" className="Name of your pizza"
-                    name="Name of your pizza"
-                    placeholder="Name of your pizza"
-                />
+                <input type="text" className="name" name="name" placeholder="Name of your pizza" />
                 <input type="text" className="type" name="type" placeholder="MUST BE DROPDOWN" />
                 <input type="text" className="ingrediants" name="ingrediants" placeholder="Write your ingrediants separete with comma: ',' " />
                 <input type="number" className="prepTime" name="prepTime" placeholder="Preptime" />

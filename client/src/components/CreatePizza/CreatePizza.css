@@ -12,6 +12,7 @@
 }
 
 .create-form-wrap h2 {
+    margin-bottom: 16px;
     font-weight: 300;
     text-align: center;
 }
@@ -26,7 +27,7 @@
 } */
 
 
-input {
+.create-form-wrap input {
     display: block;
     box-sizing: border-box;
     width: 100%;
@@ -36,8 +37,13 @@ input {
     border-radius: 4px;
 }
 
-input[type="text"],
-input[type="number"],
+.create-form>.name,
+.create-form>.type,
+.create-form>.ingrediants,
+.create-form>.prepTime,
+.create-form>.cookTime,
+.create-form>.img,
+.create-form>.recipe,
 textarea {
     width: 100%;
     padding: 0 0 0 10px;
@@ -53,8 +59,13 @@ textarea {
     height: 10em;
 }
 
-input[type="text"]:focus,
-input[type="number"]:focus,
+.create-form>.name:focus,
+.create-form>.type:focus,
+.create-form>.ingrediants:focus,
+.create-form>.prepTime:focus,
+.create-form>.cookTime:focus,
+.create-form>.img:focus,
+.create-form>.recipe:focus,
 textarea:focus {
     border: 2px solid black;
 
