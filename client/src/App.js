@@ -1,11 +1,12 @@
-import {Routes, Route} from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import { Fragment } from 'react';
 import './App.css';
 import { Header } from './components/Header/Header';
-import {Footer} from './components/Footer/Footer';
+import { Footer } from './components/Footer/Footer';
 import { PizzaList } from './components/PizzaList/PizzaList';
 import { Login } from './components/Login/Login';
 import { Catalog } from './components/Catalog/Catalog';
+import { Register } from './components/Register/Register';
 
 
 function App() {
@@ -14,13 +15,14 @@ function App() {
 
   return (
     <Fragment>
-      <Header/>
+      <Header />
       <Routes>
-      <Route path='/' element= {<PizzaList/>}/>
-      <Route path='/login' element= {<Login/>}/>
-      <Route path='/catalog' element= {<Catalog/>}/>
+        <Route path='/' element={<PizzaList />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/catalog' element={<Catalog />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </Fragment>
 
   );
