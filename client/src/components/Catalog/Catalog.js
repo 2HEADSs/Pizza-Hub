@@ -1,6 +1,6 @@
 import './Catalog.css'
 import { useEffect, useState } from "react";
-import * as pizzaService from '../../pizza-services'
+import * as pizzaService from '../../services/pizza-services'
 import { SinglePiza } from "../singlePizza/SinglePizza";
 
 export const Catalog = () => {
