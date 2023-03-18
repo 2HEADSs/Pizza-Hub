@@ -17,7 +17,8 @@ export const getAll = async () => {
 // }
 
 export const create = async (pizza) => {
-    const response = await fetch(`${baseUrl}/users`, {
+    console.log(pizza);
+    const response = await fetch(`${baseUrl}/pizza`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
@@ -26,5 +27,5 @@ export const create = async (pizza) => {
     });
     const result = await response.json();
 
-    return result.pizza
+    return result
 }
