@@ -42,12 +42,6 @@ const pizzaSchema = new Schema({
         minlength: [10, "Recipe must be minimum ten characters!"],
         maxlength: [500, "Recipe must be maximum hundred characters!"],
     },
-    description: {
-        type: String,
-        required: true,
-        minlength: [10, "Description must be minimum ten characters!"],
-        maxlength: [500, "Description must be maximum hundred characters!"],
-    },
     img: {
         type: String,
         validate: {
