@@ -8,8 +8,7 @@ export const Catalog = () => {
     useEffect(() => {
         pizzaService.getAll()
             .then(pizzas => setPizza(pizzas))
-    }, [])
-
+        }, []);
     return (
         <section className="catalog">
             <h2>All Pizzas</h2>
