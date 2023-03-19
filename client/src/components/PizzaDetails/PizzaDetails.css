@@ -1,0 +1,89 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css");
+
+.details-wrapper {
+    position: relative;
+    height: 50vh;
+    width: 80%;
+    padding: 20px 200px;
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    background: rgba(112, 112, 112, 0.1);
+    border-radius: 12px;
+}
+
+.details-wrapper img {
+    height: 50%;
+}
+
+.details-info {
+    padding: 50px;
+    /* height: 100%; */
+    /* width: 60%; */
+}
+
+.details-info h2 {
+    font-size: 44px;
+    text-align: center;
+}
+
+.details-info h2 span {
+    font-weight: 300;
+    color: #c16503
+}
+
+.details-info h3 {
+    text-align: center;
+}
+
+.details-info p {
+    font-size: 26px;
+    font-weight: 500;
+}
+
+.details-info p span {
+    color: #c16503
+}
+
+.times {
+    display: flex;
+    align-items: center;
+}
+
+.times i{
+    font-size: 24px;
+}
+.times i:nth-of-type(2){
+margin-left: 72px;
+}
+.times p{
+    margin-left: 16px;
+}
+
+.add-to-favourite-heart {
+    position: absolute;
+    text-align: center;
+    right: 20px;
+    bottom: 20px;
+}
+
+.add-to-favourite-heart i {
+    color: red;
+    font-size: 42px;
+}
+
+.edit-link {
+    position: absolute;
+    text-align: center;
+    left: 20px;
+    bottom: 60px;
+}
+
+.add-to-favourite-info {
+    position: absolute;
+    text-align: center;
+    right: 20px;
+    bottom: 60px;
+}
