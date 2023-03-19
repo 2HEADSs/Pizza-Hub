@@ -21,6 +21,9 @@ export const Header = () => {
                             <Link className='link' to="/my-pizza">My Repo's</Link>
                         </li>
                         <li className='link-nav'>
+                            <Link className='link' to="/my-favourite">Favourite</Link>
+                        </li>
+                        <li className='link-nav'>
                             <Link className='link' to="/create">Add Pizza</Link>
                         </li>
                         <li className='link-nav'>
