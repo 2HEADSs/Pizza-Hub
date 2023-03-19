@@ -5,9 +5,11 @@ export const Header = () => {
     return (
         <div className='header-wrapper'>
             <header className='header'>
-                <div className="logo-name-wrapper">
+                <Link to="/" className="logo-name-wrapper">
                     <div className="pizza-logo"></div>
                     <p className='name'>Pizza <span>HUB</span></p>
+                </Link>
+                <div >
                 </div>
                 <nav className='navigation'>
                     <ul role="list">

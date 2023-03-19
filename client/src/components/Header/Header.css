@@ -7,10 +7,15 @@
     align-items: center;
 }
 
+.header a{
+    text-decoration: none;
+}
+
 .logo-name-wrapper {
     display: flex;
     align-items: center;
     gap: 50px;
+    text-transform: none;
 }
 
 .pizza-logo {
@@ -23,14 +28,13 @@
 }
 
 .name {
+    color: #c16503;
     font-size: 42px;
-
 }
 
 
 .name span {
     color: #087b29;
-    cursor: pointer;
     margin: auto;
     font-size: 5vmin;
     font-weight: 300;
