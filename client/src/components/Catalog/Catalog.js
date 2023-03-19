@@ -17,6 +17,9 @@ export const Catalog = () => {
                     <SinglePiza pizza={pizza} key={pizza._id} />
                 )}
             </article>
+            {allPizas.length === 0 &&(
+                <h3>No Pizzas</h3>
+            )}
         </section>
     );
 }
