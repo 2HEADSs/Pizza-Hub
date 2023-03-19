@@ -1,4 +1,4 @@
-.create-form-wrap {
+.edit-form-wrap {
     font-size: 1.6rem;
     font-family: "Open Sans", sans-serif;
     color: #2b3e51;
@@ -11,23 +11,18 @@
     box-shadow: 0px 2px 25px 0px rgba(119, 120, 119, 1);
 }
 
-.create-form-wrap h2 {
+.edit-form-wrap h2 {
     margin-bottom: 16px;
     font-weight: 300;
     text-align: center;
 }
 
-.create-form {
+.edit-form {
     width: 80%;
     margin: 0 auto;
 }
 
-/* p {
-    position: relative;
-} */
-
-
-.create-form-wrap input {
+.edit-form-wrap input {
     display: block;
     box-sizing: border-box;
     width: 100%;
@@ -37,13 +32,13 @@
     border-radius: 4px;
 }
 
-.create-form>.name,
-.create-form>.type,
-.create-form>.ingrediants,
-.create-form>.prepTime,
-.create-form>.cookTime,
-.create-form>.img,
-.create-form>.recipe,
+.edit-form>.name,
+.edit-form>.type,
+.edit-form>.ingrediants,
+.edit-form>.prepTime,
+.edit-form>.cookTime,
+.edit-form>.img,
+.edit-form>.recipe,
 textarea {
     width: 100%;
     padding: 0 0 0 10px;
@@ -61,13 +56,13 @@ textarea {
 
 }
 
-.create-form>.name:focus,
-.create-form>.type:focus,
-.create-form>.ingrediants:focus,
-.create-form>.prepTime:focus,
-.create-form>.cookTime:focus,
-.create-form>.img:focus,
-.create-form>.recipe:focus,
+.edit-form>.name:focus,
+.edit-form>.type:focus,
+.edit-form>.ingrediants:focus,
+.edit-form>.prepTime:focus,
+.edit-form>.cookTime:focus,
+.edit-form>.img:focus,
+.edit-form>.recipe:focus,
 textarea:focus {
     border: 2px solid black;
     color: black;
