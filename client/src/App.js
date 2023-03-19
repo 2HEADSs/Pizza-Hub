@@ -8,6 +8,7 @@ import { Catalog } from './components/Catalog/Catalog';
 import { Register } from './components/Register/Register';
 import { CreatePizza } from './components/CreatePizza/CreatePizza';
 import { HomeList } from './components/HomeList/HomeList';
+import { PizzaDetails } from './components/PizzaDetails/PizzaDetails';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path='/register' element={<Register />} />
         <Route path='/create' element={<CreatePizza />} />
         <Route path='/catalog' element={<Catalog />} />
+        <Route path='/catalog/:pizzaId' element={<PizzaDetails />} />
       </Routes>
       <Footer />
     </Fragment>
