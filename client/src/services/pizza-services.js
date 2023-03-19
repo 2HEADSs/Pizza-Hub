@@ -15,12 +15,12 @@ export const getAll = async () => {
 }
 
 
-// export const getOnePizza = async (pizzaId) => {
-//     const response = await fetch(`${baseUrl}/pizza/${pizzaId}`);
-//     const result = await response.json();
-
-//     return result.pizza
-// }
+export const getOnePizza = async (pizzaId) => {
+    const response = await fetch(`${baseUrl}/pizza/${pizzaId}`);
+    const result = await response.json();
+    console.log(result);
+    return result
+}
 
 export const create = async (pizza) => {
     console.log(pizza);
