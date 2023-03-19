@@ -9,6 +9,7 @@ import { Register } from './components/Register/Register';
 import { CreatePizza } from './components/CreatePizza/CreatePizza';
 import { HomeList } from './components/HomeList/HomeList';
 import { PizzaDetails } from './components/PizzaDetails/PizzaDetails';
+import { EditPizza } from './components/EditPizza/EditPizza';
 
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
         <Route path='/create' element={<CreatePizza />} />
         <Route path='/catalog' element={<Catalog />} />
         <Route path='/catalog/details/:pizzaId' element={<PizzaDetails />} />
-        <Route path='/catalog/edit/:pizzaId' element={<PizzaDetails />} />
+        <Route path='/catalog/edit/:pizzaId' element={<EditPizza />} />
       </Routes>
       <Footer />
     </Fragment>
