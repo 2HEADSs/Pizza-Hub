@@ -1,0 +1,19 @@
+.last-added{
+    margin: 50px auto;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+.last-added h2{
+    color: #087b29;
+    font-size: 42px;
+    border-bottom: 4px solid #087b29;
+}
+
+.card-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
