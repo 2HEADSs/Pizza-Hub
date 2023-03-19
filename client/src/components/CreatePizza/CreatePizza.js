@@ -16,12 +16,12 @@ export const CreatePizza = () => {
         e.preventDefault()
         console.log(pizzaData);
         await pizzaService.create(pizzaData)
-    }
+    };
 
     const addPizzaData = (e) => {
         setPizzaData({ ...pizzaData, [e.target.name]: e.target.value })
+    };
 
-    }
     return (
         <div className="create-form-wrap">
             <h2>Create your precious </h2>
