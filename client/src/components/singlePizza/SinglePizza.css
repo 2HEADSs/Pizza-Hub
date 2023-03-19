@@ -47,9 +47,7 @@
 .info-pizza-container button {
     height: 20%;
     width: 30%;
-    color: #087b29;
-    font-size: 18px;
-    font-weight: 700;
+
     background-color: transparent;
     border: 1px solid #777978;
     border-radius: 8px;
@@ -59,5 +57,13 @@
 
 .info-pizza-container button:hover {
     border: 2px solid #087b29;
-    color: black;
+    scale: 1.25;
+    transition: ease-in-out 300ms;
+}
+
+.details-link {
+    text-decoration: none;
+    color: #087b29;
+    font-size: 18px;
+    font-weight: 700;
 }
