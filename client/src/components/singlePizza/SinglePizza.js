@@ -8,7 +8,7 @@ export const SinglePiza = ({ pizza }) => {
             <div className='info-pizza-container'>
                 <p>Type: <span>{pizza.type}</span> </p>
                 <p>Name: <span>{pizza.name}</span> </p>
-                <button> <Link to={`/catalog/${pizza._id}`} className="details-link">Details</Link> </button>
+                <button> <Link to={`/catalog/details/${pizza._id}`} className="details-link">Details</Link> </button>
             </div>
         </article>
 

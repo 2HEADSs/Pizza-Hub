@@ -24,7 +24,8 @@ function App() {
         <Route path='/register' element={<Register />} />
         <Route path='/create' element={<CreatePizza />} />
         <Route path='/catalog' element={<Catalog />} />
-        <Route path='/catalog/:pizzaId' element={<PizzaDetails />} />
+        <Route path='/catalog/details/:pizzaId' element={<PizzaDetails />} />
+        <Route path='/catalog/edit/:pizzaId' element={<PizzaDetails />} />
       </Routes>
       <Footer />
     </Fragment>
