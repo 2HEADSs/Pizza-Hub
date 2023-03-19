@@ -49,7 +49,7 @@ export const EditPizza = () => {
                     className="type"
                     name="type"
                     placeholder="MUST BE DROPDOWN"
-                    value={`Pizza type:  ${pizzaData.type}`}
+                    value={pizzaData.type}
                     onChange={addPizzaData}
                 />
                 <label for="ingrediants">Ingrediants:</label>
