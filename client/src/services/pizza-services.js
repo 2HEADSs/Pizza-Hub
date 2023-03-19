@@ -2,10 +2,16 @@ const baseUrl = 'http://localhost:3030';
 
 
 export const getAll = async () => {
-    const response = await fetch(`${baseUrl}/pizza`);
-    const result = await response.json();
 
-    return result
+    try {
+        const response = await fetch(`${baseUrl}/pizza`);
+        const result = await response.json();
+        return result
+    } catch (error) {
+        console.log(`${error} = errrorrrr`);
+        return [];
+    }
+
 }
 
 
