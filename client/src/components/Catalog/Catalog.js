@@ -18,5 +18,5 @@ export const Catalog = () => {
                 )}
             </article>
         </section>
-    )
-                }
+    );
+}
