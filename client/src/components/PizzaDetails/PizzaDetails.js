@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import './PizzaDetails.css'
-import * as pizzaService from '../../services/pizza-services'
+import * as pizzaService from '../../services/pizzaService'
 
 
 export const PizzaDetails = () => {

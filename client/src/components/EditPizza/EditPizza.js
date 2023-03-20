@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import * as pizzaService from '../../services/pizza-services'
+import * as pizzaService from '../../services/pizzaService'
 import { useParams } from 'react-router-dom';
 
 import './EditPizza.css'
