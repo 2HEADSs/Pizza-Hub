@@ -36,7 +36,6 @@ input {
 }
 
 
-.login-form>.username,
 .login-form>.email,
 .login-form>.password,
 .login-form>.repass {
@@ -52,7 +51,6 @@ input {
   background: none;
 }
 
-.login-form>.username:focus,
 .login-form>.email:focus,
 .login-form>.password:focus,
 .login-form>.repass:focus {
