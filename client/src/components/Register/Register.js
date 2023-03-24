@@ -1,10 +1,12 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-
 import './Register.css';
 import { authRegister } from '../../services/authService';
 
+
 export const Register = () => {
+
+    const navigate = useNavigate();
     const [registerFormData, setRegisterData] = useState({
         email: '',
         username: '',
@@ -18,8 +20,9 @@ export const Register = () => {
         console.log(registerFormData);
         const responseData = await authRegister(registerFormData);
         console.log(responseData);
-
-        
+        //TODO NAVIGATE 
+        navigate('/');
+        // add token to state and context
         setRegisterData({
             email: '',
             username: '',
