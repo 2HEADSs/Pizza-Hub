@@ -12,8 +12,13 @@ export const Login = () => {
 
     const loginHandler = async (e) => {
         e.preventDefault();
-        const data = await authLogin(login)
+        const data = await authLogin(login);
         console.log(data);
+        setLogin({
+            email: '',
+            password: ''
+        })
+        //TODO NAVIGATE 
     };
 
     const addLoginData = (e) => {
