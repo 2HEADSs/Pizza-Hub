@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import * as pizzaService from '../../services/pizzaService'
+import { useState } from 'react';
+import * as pizzaService from '../../services/pizzaService';
 
 import './CreatePizza.css'
 export const CreatePizza = () => {
