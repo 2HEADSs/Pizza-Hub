@@ -50,7 +50,7 @@ const pizzaSchema = new Schema({
         },
     },
     //TODO add user
-    // _ownerId: { type: ObjectId, ref: "User", required: true },
+    _ownerId: { type: ObjectId, ref: "User", required: true },
     likes: { type: Array, default: [], required: false },
 });
 
