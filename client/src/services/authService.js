@@ -2,7 +2,6 @@ const baseUrl = 'http://localhost:3030/auth';
 
 
 export const authLogin = async (data) => {
-    console.log(data);
     try {
         const response = await fetch(`${baseUrl}/login`, {
             method: 'POST',
@@ -11,7 +10,8 @@ export const authLogin = async (data) => {
             },
             body: JSON.stringify(data)
         })
-        return response;
+        const result = await response.json();
+        return result;
     } catch (error) {
         console.log(error);
         return error
