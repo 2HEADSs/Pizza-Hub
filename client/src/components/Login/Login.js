@@ -18,7 +18,9 @@ export const Login = () => {
             email: '',
             password: ''
         })
+        //TODOerror handler
         //TODO NAVIGATE 
+        // add token to state and context
     };
 
     const addLoginData = (e) => {

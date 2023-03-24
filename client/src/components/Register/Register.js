@@ -5,8 +5,8 @@ import { authRegister } from '../../services/authService';
 
 
 export const Register = () => {
-
     const navigate = useNavigate();
+
     const [registerFormData, setRegisterData] = useState({
         email: '',
         username: '',
@@ -14,11 +14,22 @@ export const Register = () => {
         repass: ''
     });
 
+    const [errors, setErrors] = useState({
+        email: '',
+        username: '',
+        password: '',
+        repass: ''
+    });
+
+
+
     const registerHandler = async (e) => {
         e.preventDefault();
-        //check if both password are same
+        //TODOcheck if both password are same
         console.log(registerFormData);
         const responseData = await authRegister(registerFormData);
+        //TODOcheck if server return error
+        //TODOerror handler
         console.log(responseData);
         //TODO NAVIGATE 
         navigate('/');
@@ -30,6 +41,8 @@ export const Register = () => {
             repass: ''
         })
     };
+
+
 
     const addRegisterData = (e) => {
         setRegisterData({ ...registerFormData, [e.target.name]: e.target.value })
