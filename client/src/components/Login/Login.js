@@ -5,14 +5,14 @@ import './Login.css';
 import { authLogin } from '../../services/authService';
 
 export const Login = () => {
-    const [login, setLogin] = useState({
+    const [loginFormData, setLogin] = useState({
         email: '',
         password: ''
     });
 
     const loginHandler = async (e) => {
         e.preventDefault();
-        const data = await authLogin(login);
+        const data = await authLogin(loginFormData);
         console.log(data);
         setLogin({
             email: '',
@@ -22,7 +22,7 @@ export const Login = () => {
     };
 
     const addLoginData = (e) => {
-        setLogin({ ...login, [e.target.name]: e.target.value })
+        setLogin({ ...loginFormData, [e.target.name]: e.target.value })
     }
 
     return (
@@ -34,7 +34,7 @@ export const Login = () => {
                     className="email"
                     name="email"
                     placeholder="Email"
-                    value={login.email}
+                    value={loginFormData.email}
                     onChange={addLoginData}
                 />
                 <input
@@ -42,7 +42,7 @@ export const Login = () => {
                     className="password"
                     name="password"
                     placeholder="Enter your password"
-                    value={login.password}
+                    value={loginFormData.password}
                     onChange={addLoginData}
                 />
                 <input
