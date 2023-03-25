@@ -1,9 +1,9 @@
 # Pizza-Hub
 Motorcycle:
 
-SPA  made for SoftUni-Angular course, created with Angular as FE, Node.js as BE and MongoDB as DB.
+SPA  made for SoftUni-React course, created with REACT as FE, Node.js as BE and MongoDB as DB.
 
-![Home Img](Home Page.jpg)
+![](/HomePage.jpg)
 
 Informaton:
 
