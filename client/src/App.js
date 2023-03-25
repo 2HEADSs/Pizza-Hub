@@ -1,5 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
+
 import './App.css';
+import { AuthContext } from './context/AuthContext';
 import { Header } from './components/Header/Header';
 import { Footer } from './components/Footer/Footer';
 import { Login } from './components/Login/Login';
@@ -13,20 +15,24 @@ import { EditPizza } from './components/EditPizza/EditPizza';
 
 function App() {
 
-
+  const onLoginSubmit = async (data) => {
+    console.log(data);
+  }
 
   return (
     <>
-      <Header />
-      <Routes>
-        <Route path='/' element={<HomeList />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/create' element={<CreatePizza />} />
-        <Route path='/catalog' element={<Catalog />} />
-        <Route path='/catalog/details/:pizzaId' element={<PizzaDetails />} />
-        <Route path='/catalog/edit/:pizzaId' element={<EditPizza />} />
-      </Routes>
+      <AuthContext.Provider value={{ onLoginSubmit }}>
+        <Header />
+        <Routes>
+          <Route path='/' element={<HomeList />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/create' element={<CreatePizza />} />
+          <Route path='/catalog' element={<Catalog />} />
+          <Route path='/catalog/details/:pizzaId' element={<PizzaDetails />} />
+          <Route path='/catalog/edit/:pizzaId' element={<EditPizza />} />
+        </Routes>
+      </AuthContext.Provider>
       <Footer />
     </>
 
