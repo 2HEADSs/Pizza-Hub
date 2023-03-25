@@ -32,9 +32,8 @@ export const Register = () => {
         setUserSession(responseData)
         //TODOcheck if server return error
         //TODOerror handler
-        //TODO NAVIGATE 
-        // navigate('/');
-        // add token to state and context
+        //await - race conditions
+        navigate('/');
         setRegisterData({
             email: '',
             username: '',

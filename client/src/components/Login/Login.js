@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
@@ -13,6 +13,8 @@ export const Login = () => {
     });
 
     const { setUserSession } = useContext(AuthContext);
+    const navigate = useNavigate();
+
 
     const loginHandler = async (e) => {
         e.preventDefault();
@@ -23,8 +25,8 @@ export const Login = () => {
             password: ''
         })
         //TODOerror handler
-        //TODO NAVIGATE 
-        // add token to state and context
+        navigate('/');
+
     };
 
     const addLoginData = (e) => {
