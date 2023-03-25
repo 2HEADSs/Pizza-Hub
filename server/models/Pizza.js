@@ -49,7 +49,6 @@ const pizzaSchema = new Schema({
             message: "Invalid URL, must start with HTTP/HTTPS",
         },
     },
-    //TODO add user
     _ownerId: { type: ObjectId, ref: "User", required: true },
     likes: { type: Array, default: [], required: false },
 });
