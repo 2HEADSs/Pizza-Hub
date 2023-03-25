@@ -19,6 +19,7 @@ export const Login = () => {
     const loginHandler = async (e) => {
         e.preventDefault();
         const responseData = await authLogin(loginFormData);
+        //TODOawait - race conditions
         setUserSession(responseData)
         setLoginData({
             email: '',

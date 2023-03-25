@@ -32,7 +32,7 @@ export const Register = () => {
         setUserSession(responseData)
         //TODOcheck if server return error
         //TODOerror handler
-        //await - race conditions
+        //TODOawait - race conditions
         navigate('/');
         setRegisterData({
             email: '',
