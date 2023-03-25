@@ -12,7 +12,7 @@ export const Login = () => {
         password: ''
     });
 
-    const { setUserSession } = useContext(AuthContext)
+    const { setUserSession } = useContext(AuthContext);
 
     const loginHandler = async (e) => {
         e.preventDefault();
