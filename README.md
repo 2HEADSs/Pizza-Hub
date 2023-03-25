@@ -1,22 +1,20 @@
 # Pizza-Hub
-Motorcycle:
 
-SPA  made for SoftUni-Angular course, created with Angular as FE, Node.js as BE and MongoDB as DB.
+SPA  made for SoftUni-React course, created with REACT as FE, Node.js as BE and MongoDB as DB.
 
-![](Welcome.jpg)
+![](/HomePage.jpg)
 
 Informaton:
 
-The app works as sale platform for motorcycles with basic functionality.
-Every user(not logged in) have access to : Home , All Bikes (catalog), Search, Details, Register and Login.
-Evry logged in user have acces to: Home, All Bikes (catalog), Search, My Bikes(if has liked bikes), Create, Edit(if has own bikes for edit) and Logout.
-Every logged in user can like bikes and they automaticly are added to My Bikes.
+The app works as platform for share pizza recepies with basic functionality with part of imittation og Git-Hub.
+Every user(not logged in) have access to : Home , All Repo's (catalog), Search, Details, Register and Login.
+Evry logged in user have acces to: Home, All Repo's (catalog), Search, My epo's(if has liked pizza), Add Pizza, Edit(if has own pizzas for edit) and Logout.
+Every logged in user can like Pizzas and they automaticly are added to My Likes.
 
 
 TechStack
 -Client
-    Angular CLI: 14.2.8
-    TypeScript: 4.7-.2
+    REACT
 -Server
     Node: 17.2.0
     ExpressJS: 4.18.2
@@ -27,7 +25,7 @@ TechStack
 
 Setup
 
-To run app, in directory "motorcycle-app",  open inside cmd and run:
+To run app, in directory "CLIENT",  open inside cmd and run:
 
 $ npm install
 
