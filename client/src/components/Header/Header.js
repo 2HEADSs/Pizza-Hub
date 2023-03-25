@@ -15,8 +15,7 @@ export const Header = () => {
                     <div className="pizza-logo"></div>
                     <p className='name'>Pizza <span>HUB</span></p>
                 </Link>
-                <div >
-                </div>
+                <h3 className='user-name'>Hello {user.username}</h3>
                 <nav className='navigation'>
                     <ul role="list">
                         <li className='link-nav'>
