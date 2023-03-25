@@ -6,7 +6,6 @@ import './EditPizza.css'
 
 export const EditPizza = () => {
     const { pizzaId } = useParams();
-    console.log(pizzaId);
 
     useEffect(() => {
         pizzaService.getOnePizza(pizzaId)
@@ -22,8 +21,7 @@ export const EditPizza = () => {
 
     const createPizzaHandler = async (e) => {
         e.preventDefault()
-        console.log(pizzaData);
-        await pizzaService.create(pizzaData)
+        // await pizzaService.create(pizzaData);
     };
 
     const addPizzaData = (e) => {
