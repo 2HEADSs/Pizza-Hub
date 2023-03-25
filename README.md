@@ -15,6 +15,9 @@ Every logged in user can like Pizzas and they automaticly are added to My Likes.
 TechStack
 -Client
     REACT
+    
+    
+    
 -Server
     Node: 17.2.0
     ExpressJS: 4.18.2
