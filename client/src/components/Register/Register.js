@@ -1,38 +1,39 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext';
+
 import './Register.css';
 import { authRegister } from '../../services/authService';
 
 
 export const Register = () => {
-    const navigate = useNavigate();
-
     const [registerFormData, setRegisterData] = useState({
         email: '',
         username: '',
         password: '',
         repass: ''
     });
-
     const [errors, setErrors] = useState({
         email: '',
         username: '',
         password: '',
         repass: ''
     });
+    const navigate = useNavigate();
+    const { setUserSession } = useContext(AuthContext);
 
 
 
     const registerHandler = async (e) => {
         e.preventDefault();
         //TODOcheck if both password are same
-        console.log(registerFormData);
         const responseData = await authRegister(registerFormData);
+        setUserSession(responseData)
         //TODOcheck if server return error
         //TODOerror handler
-        console.log(responseData);
         //TODO NAVIGATE 
-        navigate('/');
+        // navigate('/');
         // add token to state and context
         setRegisterData({
             email: '',
