@@ -19,7 +19,7 @@ function App() {
 
   const setUserSession = (data) => {
     setUser({...data })
-    console.log(user);
+
   }
 
   return (
