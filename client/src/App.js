@@ -17,7 +17,7 @@ function App() {
 
 
   return (
-    <Fragment>
+    <>
       <Header />
       <Routes>
         <Route path='/' element={<HomeList />} />
@@ -29,7 +29,7 @@ function App() {
         <Route path='/catalog/edit/:pizzaId' element={<EditPizza />} />
       </Routes>
       <Footer />
-    </Fragment>
+    </>
 
   );
 }
