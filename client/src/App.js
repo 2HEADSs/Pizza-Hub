@@ -11,17 +11,20 @@ import { CreatePizza } from './components/CreatePizza/CreatePizza';
 import { HomeList } from './components/HomeList/HomeList';
 import { PizzaDetails } from './components/PizzaDetails/PizzaDetails';
 import { EditPizza } from './components/EditPizza/EditPizza';
+import { useState } from 'react';
 
 
 function App() {
+  const [user, setUser] = useState({})
 
-  const onLoginSubmit = async (data) => {
-    console.log(data);
+  const setUserSession = (data) => {
+    setUser({...data })
+    console.log(user);
   }
 
   return (
     <>
-      <AuthContext.Provider value={{ onLoginSubmit }}>
+      <AuthContext.Provider value={{ setUserSession, user}}>
         <Header />
         <Routes>
           <Route path='/' element={<HomeList />} />

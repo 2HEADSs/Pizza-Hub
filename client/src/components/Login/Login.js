@@ -12,10 +12,12 @@ export const Login = () => {
         password: ''
     });
 
+    const { setUserSession } = useContext(AuthContext)
+
     const loginHandler = async (e) => {
         e.preventDefault();
         const responseData = await authLogin(loginFormData);
-        console.log(responseData);
+        setUserSession(responseData)
         setLoginData({
             email: '',
             password: ''
