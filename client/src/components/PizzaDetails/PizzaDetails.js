@@ -14,6 +14,7 @@ export const PizzaDetails = () => {
         pizzaService.getOnePizza(pizzaId)
             .then(result => {
                 setPizza(result)
+                console.log(result);
             })
     }, [pizzaId])
 
@@ -24,7 +25,7 @@ export const PizzaDetails = () => {
             <article className="details-info">
 
                 <h2>Name: <span>{pizza.name}</span></h2>
-                <h3>Made by: </h3>
+                <h3>Made by: <span>{pizza._ownerId.username}</span></h3>
                 <p>Type: <span>{pizza.type}</span></p>
                 <p>Ingrediants: <span>{pizza.ingrediants}</span></p>
                 <div className="times">
@@ -35,7 +36,7 @@ export const PizzaDetails = () => {
                 </div>
                 <p>How to prepare: <span>{pizza.recipe}</span></p>
 
-                 <Link to={`/catalog/edit/${pizza._id}`} className="edit-link">Edit</Link>
+                <Link to={`/catalog/edit/${pizza._id}`} className="edit-link">Edit</Link>
                 <a className="add-to-favourite-heart" onMouseEnter={() => setIsShown(true)}
                     onMouseLeave={() => setIsShown(false)}><i className="fa-solid fa-heart"></i></a>
 
