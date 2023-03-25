@@ -1,5 +1,9 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import * as pizzaService from '../../services/pizzaService';
+
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext';
 
 import './CreatePizza.css'
 export const CreatePizza = () => {
@@ -12,15 +16,19 @@ export const CreatePizza = () => {
         img: '',
         recipe: ''
     });
+    const navigate = useNavigate();
+
     const createPizzaHandler = async (e) => {
         e.preventDefault()
-        console.log(pizzaData);
-        await pizzaService.create(pizzaData)
+        const response = await pizzaService.create(pizzaData, user._id);
+        //TODO check if status = 200/ok
+        navigate(`/catalog/details/${response._id}`)
     };
 
     const addPizzaData = (e) => {
         setPizzaData({ ...pizzaData, [e.target.name]: e.target.value })
     };
+    const { user } = useContext(AuthContext);
 
     return (
         <div className="create-form-wrap">
