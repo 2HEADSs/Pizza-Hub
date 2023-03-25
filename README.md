@@ -33,7 +33,7 @@ $ npm install
 
 $ npm start
 
-Which opens the app at http://localhost:4200 in your browser.
+Which opens the app at http://localhost:3000 in your browser.
 Also should run REST_API server.
 Open directory "server", open inside cmd and run:
 
@@ -41,5 +41,5 @@ $ npm install
 
 $ npm start
 
-And the server will start listening on port 3000.
+And the server will start listening at http://localhost:3030.
 
