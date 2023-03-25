@@ -7,9 +7,7 @@ import './Header.css';
 
 export const Header = () => {
     const { user } = useContext(AuthContext);
-    const isAuth = user?._id ? true : false
-    console.log(user);
-    console.log(isAuth);
+    const isAuth = user?._id ? true : false;
     return (
         <div className='header-wrapper'>
             <header className='header'>
