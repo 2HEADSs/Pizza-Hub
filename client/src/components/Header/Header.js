@@ -1,7 +1,15 @@
-import './Header.css';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext';
+
+import './Header.css';
+
 
 export const Header = () => {
+    const { user } = useContext(AuthContext);
+    const isAuth = user?._id ? true : false
+    console.log(user);
+    console.log(isAuth);
     return (
         <div className='header-wrapper'>
             <header className='header'>
@@ -19,24 +27,32 @@ export const Header = () => {
                         <li className='link-nav'>
                             <Link className='link' to="/catalog">All Repo's</Link>
                         </li>
-                        <li className='link-nav'>
-                            <Link className='link' to="/my-pizza">My Repo's</Link>
-                        </li>
-                        <li className='link-nav'>
-                            <Link className='link' to="/my-favourite">Favourite</Link>
-                        </li>
-                        <li className='link-nav'>
-                            <Link className='link' to="/create">Add Pizza</Link>
-                        </li>
-                        <li className='link-nav'>
-                            <Link className='link' to="/register">Register</Link>
-                        </li>
-                        <li className='link-nav'>
-                            <Link className='link' to="/login">Login</Link>
-                        </li>
-                        <li className='link-nav'>
-                            <Link className='link' to="/login">Logout</Link>
-                        </li>
+                        {isAuth && (
+                            <>
+                                <li className='link-nav'>
+                                    <Link className='link' to="/my-pizza">My Repo's</Link>
+                                </li>
+                                <li className='link-nav'>
+                                    <Link className='link' to="/my-favourite">Favourite</Link>
+                                </li>
+                                <li className='link-nav'>
+                                    <Link className='link' to="/create">Add Pizza</Link>
+                                </li>
+                                <li className='link-nav'>
+                                    <Link className='link' to="/login">Logout</Link>
+                                </li>
+                            </>
+                        )}
+                        {!isAuth && (
+                            <>
+                                <li className='link-nav'>
+                                    <Link className='link' to="/register">Register</Link>
+                                </li>
+                                <li className='link-nav'>
+                                    <Link className='link' to="/login">Login</Link>
+                                </li>
+                            </>
+                        )}
                     </ul>
                 </nav>
             </header>
