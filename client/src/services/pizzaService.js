@@ -8,7 +8,6 @@ export const getAll = async () => {
         const result = await response.json();
         return result
     } catch (error) {
-        console.log(`${error} = errrorrrr`);
         return [];
     }
 
@@ -21,14 +20,14 @@ export const getOnePizza = async (pizzaId) => {
     return result
 }
 
-export const create = async (pizza) => {
-    console.log(pizza);
+export const create = async (pizza, _ownerId) => {
+    const data = { ...pizza, _ownerId }
     const response = await fetch(`${baseUrl}/pizza`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
         },
-        body: JSON.stringify(pizza)
+        body: JSON.stringify(data)
     });
     const result = await response.json();
     return result
