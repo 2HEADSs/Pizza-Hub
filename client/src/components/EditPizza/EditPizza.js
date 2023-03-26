@@ -1,11 +1,24 @@
 import { useEffect, useState } from 'react'
 import * as pizzaService from '../../services/pizzaService'
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
-import './EditPizza.css'
+import './EditPizza.css';
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext';
 
 export const EditPizza = () => {
+    const [pizzaData, setPizzaData] = useState({
+        name: '',
+        type: '',
+        ingrediants: '',
+        prepTime: '',
+        cookTime: '',
+        img: '',
+        recipe: ''
+    });
+    const [errors, setErrors] = useState("")
     const { pizzaId } = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         pizzaService.getOnePizza(pizzaId)
@@ -14,14 +27,19 @@ export const EditPizza = () => {
             })
     }, [pizzaId])
 
-
-    const [pizzaData, setPizzaData] = useState({});
-
+    const { user } = useContext(AuthContext);
 
 
-    const createPizzaHandler = async (e) => {
+    const editPizzaHandler = async (e) => {
         e.preventDefault()
-        // await pizzaService.create(pizzaData);
+        const response = await pizzaService.editPizza(pizzaData, user._id);
+        if (response.message) {
+            return setErrors(response.message.split(":")[2])
+        }
+        if (response?._id) {
+            navigate(`/catalog/details/${response._id}`)
+
+        }
     };
 
     const addPizzaData = (e) => {
@@ -30,9 +48,14 @@ export const EditPizza = () => {
 
     return (
         <div className="edit-form-wrap">
+            {errors && (
+                <>
+                    <h2 className='create-error'>{errors}</h2>
+                </>
+            )}
             <h2>Edit your precious... </h2>
-            <form className="edit-form" onSubmit={createPizzaHandler}>
-                <label for="name">Name:</label>
+            <form className="edit-form" onSubmit={editPizzaHandler}>
+                <label htmlFor="name">Name:</label>
                 <input
                     type="text"
                     className="name"
@@ -41,16 +64,17 @@ export const EditPizza = () => {
                     value={pizzaData.name}
                     onChange={addPizzaData}
                 />
-                <label for="type">Type:</label>
-                <input
-                    type="text"
-                    className="type"
-                    name="type"
-                    placeholder="MUST BE DROPDOWN"
-                    value={pizzaData.type}
-                    onChange={addPizzaData}
-                />
-                <label for="ingrediants">Ingrediants:</label>
+                <label htmlFor="type">Type:</label>
+                <select className="type"
+                    name="type" value={pizzaData.type}
+                    onChange={addPizzaData}>
+                    <option onChange={addPizzaData} value="Tasty">Tasty</option>
+                    <option onChange={addPizzaData} value="Whole grain">Whole grain</option>
+                    <option onChange={addPizzaData} value="Vegan">Vegan</option>
+                    <option onChange={addPizzaData} value="Gluten free">Gluten free</option>
+
+                </select>
+                <label htmlFor="ingrediants">Ingrediants:</label>
                 <input
                     type="text"
                     className="ingrediants"
@@ -59,7 +83,7 @@ export const EditPizza = () => {
                     value={pizzaData.ingrediants}
                     onChange={addPizzaData}
                 />
-                <label for="prepTime">Preparation time:</label>
+                <label htmlFor="prepTime">Preparation time:</label>
                 <input
                     type="number"
                     className="prepTime"
@@ -68,7 +92,7 @@ export const EditPizza = () => {
                     value={pizzaData.prepTime}
                     onChange={addPizzaData}
                 />
-                <label for="cookTime">Cooking time:</label>
+                <label htmlFor="cookTime">Cooking time:</label>
                 <input
                     type="number"
                     className="cookTime"
@@ -77,7 +101,7 @@ export const EditPizza = () => {
                     value={pizzaData.cookTime}
                     onChange={addPizzaData}
                 />
-                <label for="img">Image Link</label>
+                <label htmlFor="img">Image Link</label>
                 <input
                     type="text"
                     className="img"
@@ -86,7 +110,7 @@ export const EditPizza = () => {
                     value={pizzaData.img}
                     onChange={addPizzaData}
                 />
-                <label for="recipe">Describe preparation...</label>
+                <label htmlFor="recipe">Describe preparation...</label>
 
                 <textarea
                     className="recipe"
