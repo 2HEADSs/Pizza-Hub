@@ -11,8 +11,8 @@ import { CreatePizza } from './components/CreatePizza/CreatePizza';
 import { HomeList } from './components/HomeList/HomeList';
 import { PizzaDetails } from './components/PizzaDetails/PizzaDetails';
 import { EditPizza } from './components/EditPizza/EditPizza';
-import { useState } from 'react';
 import { useLocalStorage } from './hooks/localStorage';
+import { MyPizzas } from './components/MyPizzas/MyPizzas';
 
 
 function App() {
@@ -30,8 +30,9 @@ function App() {
           <Route path='/' element={<HomeList />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
-          <Route path='/create' element={<CreatePizza />} />
           <Route path='/catalog' element={<Catalog />} />
+          <Route path='/my-pizza' element={<MyPizzas />} />
+          <Route path='/create' element={<CreatePizza />} />
           <Route path='/catalog/details/:pizzaId' element={<PizzaDetails />} />
           <Route path='/catalog/edit/:pizzaId' element={<EditPizza />} />
         </Routes>
