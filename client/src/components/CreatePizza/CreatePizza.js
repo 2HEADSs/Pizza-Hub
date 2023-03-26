@@ -26,7 +26,8 @@ export const CreatePizza = () => {
     };
 
     const addPizzaData = (e) => {
-        setPizzaData({ ...pizzaData, [e.target.name]: e.target.value })
+        setPizzaData({ ...pizzaData, [e.target.name]: e.target.value });
+        console.log(pizzaData);
     };
     const { user } = useContext(AuthContext);
 
@@ -42,14 +43,15 @@ export const CreatePizza = () => {
                     value={pizzaData.name}
                     onChange={addPizzaData}
                 />
-                <input
-                    type="text"
-                    className="type"
-                    name="type"
-                    placeholder="MUST BE DROPDOWN"
-                    value={pizzaData.type}
-                    onChange={addPizzaData}
-                />
+                <select className="type"
+                    name="type" value={pizzaData.type}
+                    onChange={addPizzaData}>
+                    <option value="Tasty">Tasty</option>
+                    <option value="Whole grain">Whole grain</option>
+                    <option value="Vegan">Vegan</option>
+                    <option value="Gluten free">Gluten free</option>
+
+                </select>
                 <input
                     type="text"
                     className="ingrediants"

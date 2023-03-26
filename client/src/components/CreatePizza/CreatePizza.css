@@ -27,7 +27,8 @@
 } */
 
 
-.create-form-wrap input {
+.create-form-wrap input,
+.create-form-wrap select {
     display: block;
     box-sizing: border-box;
     width: 100%;
@@ -36,6 +37,8 @@
     /* line-height: 60px; */
     border-radius: 4px;
 }
+
+
 
 .create-form>.name,
 .create-form>.type,
