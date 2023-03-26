@@ -18,6 +18,7 @@ export const CreatePizza = () => {
         recipe: ''
     });
     const navigate = useNavigate();
+    const { user } = useContext(AuthContext);
 
     const createPizzaHandler = async (e) => {
         e.preventDefault()
@@ -31,14 +32,12 @@ export const CreatePizza = () => {
         if (response?._id) {
             navigate(`/catalog/details/${response._id}`)
         }
-
-
+        
     };
 
     const addPizzaData = (e) => {
         setPizzaData({ ...pizzaData, [e.target.name]: e.target.value });
     };
-    const { user } = useContext(AuthContext);
 
     return (
         <div className="create-form-wrap">
