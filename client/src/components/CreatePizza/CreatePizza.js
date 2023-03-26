@@ -22,7 +22,7 @@ export const CreatePizza = () => {
 
     const createPizzaHandler = async (e) => {
         e.preventDefault()
-        const response = await pizzaService.create(pizzaData, user._id);
+        const response = await pizzaService.create(pizzaData, user.accessToken);
 
         if (response?.message) {
             return setError(response.message.split(": ")[2].split(", ")[0])
