@@ -25,7 +25,7 @@ export const PizzaDetails = () => {
             <article className="details-info">
 
                 <h2>Name: <span>{pizza.name}</span></h2>
-                <h3>Made by: <span>{pizza._ownerId.username}</span></h3>
+                <h3>Made by: <span>{pizza?._ownerId?.username}</span></h3>
                 <p>Type: <span>{pizza.type}</span></p>
                 <p>Ingrediants: <span>{pizza.ingrediants}</span></p>
                 <div className="times">
