@@ -7,9 +7,10 @@ import { AuthContext } from '../../context/AuthContext';
 
 import './CreatePizza.css'
 export const CreatePizza = () => {
+    const [errors, setError] = useState("")
     const [pizzaData, setPizzaData] = useState({
         name: '',
-        type: '',
+        type: 'Tasty',
         ingrediants: '',
         prepTime: '',
         cookTime: '',
@@ -21,8 +22,17 @@ export const CreatePizza = () => {
     const createPizzaHandler = async (e) => {
         e.preventDefault()
         const response = await pizzaService.create(pizzaData, user._id);
-        //TODO check if status = 200/ok
-        navigate(`/catalog/details/${response._id}`)
+
+        if (response?.message) {
+            return setError(response.message.split(": ")[2].split(", ")[0])
+            // return setError(response.message.split(': ')[2])
+
+        }
+        if (response?._id) {
+            navigate(`/catalog/details/${response._id}`)
+        }
+
+
     };
 
     const addPizzaData = (e) => {
@@ -32,6 +42,11 @@ export const CreatePizza = () => {
 
     return (
         <div className="create-form-wrap">
+            {errors && (
+                <>
+                    <h2 className='create-error'>{errors}</h2>
+                </>
+            )}
             <h2>Create your precious </h2>
             <form className="create-form" onSubmit={createPizzaHandler}>
                 <input
@@ -45,10 +60,10 @@ export const CreatePizza = () => {
                 <select className="type"
                     name="type" value={pizzaData.type}
                     onChange={addPizzaData}>
-                    <option value="Tasty">Tasty</option>
-                    <option value="Whole grain">Whole grain</option>
-                    <option value="Vegan">Vegan</option>
-                    <option value="Gluten free">Gluten free</option>
+                    <option onChange={addPizzaData} value="Tasty">Tasty</option>
+                    <option onChange={addPizzaData} value="Whole grain">Whole grain</option>
+                    <option onChange={addPizzaData} value="Vegan">Vegan</option>
+                    <option onChange={addPizzaData} value="Gluten free">Gluten free</option>
 
                 </select>
                 <input
