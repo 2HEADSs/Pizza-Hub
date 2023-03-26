@@ -17,10 +17,8 @@ export const authLogin = async (data) => {
             throw new Error(result.error);
         }
     } catch (error) {
-
         return error
     }
-
 }
 
 
