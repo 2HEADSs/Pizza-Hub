@@ -1,7 +1,7 @@
 import './HomeList.css'
 import { useEffect, useState } from "react";
 import * as pizzaService from '../../services/pizzaService'
-import { SinglePiza } from "../singlePizza/SinglePizza";
+import { SinglePiza } from "../SinglePizza/SinglePizza";
 
 export const HomeList = () => {
     const [allPizas, setPizza] = useState([]);
