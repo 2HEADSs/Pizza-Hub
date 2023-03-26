@@ -1,6 +1,6 @@
 const pizzaController = require("express").Router();
 
-const { getAll, create, getById, getByUserId, getMyLikes, likePizza } = require("../services/pizzaService");
+const { getAll, create, getById, getByUserId, getMyLikes, likePizza, update } = require("../services/pizzaService");
 
 pizzaController.get("/", async (req, res) => {
     try {
@@ -54,13 +54,14 @@ pizzaController.post("/", async (req, res) => {
 
 
 pizzaController.put('/:id', async (req, res) => {
+    console.log(req.body);
     try {
         const pizza = await getById(req.params.id);
-
-        // todo parse token
-        if (req.user._id != pizza._ownerId._id) {
+        const owner = pizza._ownerId._id.toString();
+        if (req.body._ownerId != owner) {
             return res.status(403).json({ message: 'You cannot modify this record' })
-        }
+        };
+
         const result = await update(req.params.id, req.body);
         res.status(200).json(result)
     } catch (err) {
