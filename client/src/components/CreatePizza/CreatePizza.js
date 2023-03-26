@@ -27,7 +27,6 @@ export const CreatePizza = () => {
 
     const addPizzaData = (e) => {
         setPizzaData({ ...pizzaData, [e.target.name]: e.target.value });
-        console.log(pizzaData);
     };
     const { user } = useContext(AuthContext);
 
