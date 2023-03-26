@@ -2,7 +2,6 @@ const baseUrl = 'http://localhost:3030';
 
 
 export const getAll = async () => {
-
     try {
         const response = await fetch(`${baseUrl}/pizza`);
         const result = await response.json();
@@ -18,6 +17,15 @@ export const getOnePizza = async (pizzaId) => {
     const result = await response.json();
     return result
 };
+
+export const getMyPizza = async (userId) => {
+    const response = await fetch(`${baseUrl}/pizza/my-pizzas`, { headers: { 'x-authorization': userId } });
+    const result = await response.json();
+    console.log(result);
+    return result
+}
+
+
 
 
 export const create = async (pizza, _ownerId) => {
