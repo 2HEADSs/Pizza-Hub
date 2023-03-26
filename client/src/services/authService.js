@@ -32,7 +32,11 @@ export const authRegister = async (data) => {
             body: JSON.stringify(data)
         })
         const result = await response.json();
-        return result;
+        if (response.ok) {
+            return result
+        } else {
+            throw new Error(result.error);
+        }
     } catch (error) {
         console.log(error);
         return error
