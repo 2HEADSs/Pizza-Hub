@@ -11,6 +11,7 @@ export const Login = () => {
         email: '',
         password: ''
     });
+    const [errors, setErrors] = useState("")
 
     const { setUserSession } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -19,14 +20,18 @@ export const Login = () => {
     const loginHandler = async (e) => {
         e.preventDefault();
         const responseData = await authLogin(loginFormData);
-        //TODOawait - race conditions
-        setUserSession(responseData)
-        setLoginData({
-            email: '',
-            password: ''
-        })
-        //TODOerror handler
-        navigate('/');
+        if (responseData?.message) {
+            return setErrors(responseData.message)
+        }
+        if (responseData?._id) {
+            setUserSession(responseData)
+            navigate('/');
+        }
+
+        // setLoginData({
+        //     email: '',
+        //     password: ''
+        // })
 
     };
 
@@ -37,6 +42,9 @@ export const Login = () => {
     return (
         <div className="login-form-wrap">
             <h2>Login</h2>
+            {errors && (
+                <h2 className='create-error'>{errors}</h2>
+            )}
             <form className="login-form" onSubmit={loginHandler}>
                 <input
                     type="text"
