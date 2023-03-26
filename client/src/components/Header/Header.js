@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 
@@ -8,6 +8,15 @@ import './Header.css';
 export const Header = () => {
     const { user } = useContext(AuthContext);
     const isAuth = user?._id ? true : false;
+    const navigate = useNavigate();
+    const { setUserSession } = useContext(AuthContext);
+
+    const logoutFn = (e) => {
+        console.log(e);
+        setUserSession({});
+        localStorage.clear();
+        navigate('/');
+    }
     return (
         <div className='header-wrapper'>
             <header className='header'>
@@ -38,7 +47,7 @@ export const Header = () => {
                                     <Link className='link' to="/create">Add Pizza</Link>
                                 </li>
                                 <li className='link-nav'>
-                                    <Link className='link' to="/login">Logout</Link>
+                                    <Link className='link' to="/login" onClick={logoutFn}>Logout</Link>
                                 </li>
                             </>
                         )}
