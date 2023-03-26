@@ -52,13 +52,15 @@
     align-items: center;
 }
 
-.times i{
+.times i {
     font-size: 24px;
 }
-.times i:nth-of-type(2){
-margin-left: 72px;
+
+.times i:nth-of-type(2) {
+    margin-left: 72px;
 }
-.times p{
+
+.times p {
     margin-left: 16px;
 }
 
@@ -78,7 +80,20 @@ margin-left: 72px;
     position: absolute;
     text-align: center;
     left: 20px;
-    bottom: 60px;
+    bottom: 20px;
+    border: 2px solid #087b29;
+    border-radius: 8px;
+    font-size: 34px;
+    padding: 0px 20px;
+    text-decoration: none;
+    color: #c16503;
+}
+
+.edit-link:hover {
+    border: 3px solid #c16503;
+    color: #087b29;
+    font-size: 42px;
+
 }
 
 .add-to-favourite-info {
