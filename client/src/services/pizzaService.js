@@ -28,16 +28,16 @@ export const getMyPizza = async (userId) => {
 
 
 
-export const create = async (pizza, _ownerId) => {
-    const data = { ...pizza, _ownerId };
+export const create = async (pizza, token) => {
 
     try {
         const response = await fetch(`${baseUrl}/pizza`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
+                'x-authorization': token
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(pizza)
         });
         const result = await response.json();
         if (response.ok) {
