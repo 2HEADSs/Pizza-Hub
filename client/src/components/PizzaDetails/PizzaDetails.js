@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import './PizzaDetails.css'
 import * as pizzaService from '../../services/pizzaService'
 
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext';
 
 export const PizzaDetails = () => {
     const { pizzaId } = useParams();
@@ -14,9 +16,11 @@ export const PizzaDetails = () => {
         pizzaService.getOnePizza(pizzaId)
             .then(result => {
                 setPizza(result)
-                console.log(result);
+
             })
     }, [pizzaId])
+    const { user } = useContext(AuthContext);
+    const isOwner = user?._id === pizza?._ownerId?._id;
 
 
     return (
@@ -36,12 +40,18 @@ export const PizzaDetails = () => {
                 </div>
                 <p>How to prepare: <span>{pizza.recipe}</span></p>
 
-                <Link to={`/catalog/edit/${pizza._id}`} className="edit-link">Edit</Link>
-                <a className="add-to-favourite-heart" onMouseEnter={() => setIsShown(true)}
-                    onMouseLeave={() => setIsShown(false)}><i className="fa-solid fa-heart"></i></a>
+                {isOwner && (
+                    <Link to={`/catalog/edit/${pizza._id}`} className="edit-link">Edit</Link>
+                )}
+                {!isOwner && (
+                    <>
+                        <a className="add-to-favourite-heart" onMouseEnter={() => setIsShown(true)}
+                            onMouseLeave={() => setIsShown(false)}><i className="fa-solid fa-heart"></i></a>
 
-                {isShown && (
-                    <h3 className="add-to-favourite-info">Click on heart add in your favourite list! </h3>
+                        {isShown && (
+                            <h3 className="add-to-favourite-info">Click on heart add in your favourite list! </h3>
+                        )}
+                    </>
                 )}
             </article>
         </section >
