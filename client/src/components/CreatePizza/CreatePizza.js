@@ -7,7 +7,7 @@ import { AuthContext } from '../../context/AuthContext';
 
 import './CreatePizza.css'
 export const CreatePizza = () => {
-    const [errors, setError] = useState("")
+    const [error, setError] = useState("")
     const [pizzaData, setPizzaData] = useState({
         name: '',
         type: 'Tasty',
@@ -41,9 +41,9 @@ export const CreatePizza = () => {
 
     return (
         <div className="create-form-wrap">
-            {errors && (
+            {error && (
                 <>
-                    <h2 className='create-error'>{errors}</h2>
+                    <h2 className='create-error'>{error}</h2>
                 </>
             )}
             <h2>Create your precious </h2>
