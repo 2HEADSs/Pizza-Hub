@@ -38,7 +38,6 @@ export const authRegister = async (data) => {
             throw new Error(result.error);
         }
     } catch (error) {
-        console.log(error);
         return error
     }
 
