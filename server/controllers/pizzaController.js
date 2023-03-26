@@ -54,12 +54,12 @@ pizzaController.post("/", async (req, res) => {
 
 
 pizzaController.put('/:id', async (req, res) => {
-    console.log(req.body);
+
     try {
         const pizza = await getById(req.params.id);
         const owner = pizza._ownerId._id.toString();
         if (req.body._ownerId != owner) {
-            return res.status(403).json({ message: 'You cannot modify this record' })
+            return res.status(403).json({ error: 'You cannot modify this record' })
         };
 
         const result = await update(req.params.id, req.body);
