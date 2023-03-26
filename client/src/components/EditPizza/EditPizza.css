@@ -22,7 +22,8 @@
     margin: 0 auto;
 }
 
-.edit-form-wrap input {
+.edit-form-wrap input,
+.edit-form-wrap select {
     display: block;
     box-sizing: border-box;
     width: 100%;
