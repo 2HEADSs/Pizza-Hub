@@ -10,15 +10,15 @@ export const getAll = async () => {
     } catch (error) {
         return [];
     }
-
-}
+};
 
 
 export const getOnePizza = async (pizzaId) => {
     const response = await fetch(`${baseUrl}/pizza/${pizzaId}`);
     const result = await response.json();
     return result
-}
+};
+
 
 export const create = async (pizza, _ownerId) => {
     const data = { ...pizza, _ownerId };
@@ -41,6 +41,25 @@ export const create = async (pizza, _ownerId) => {
     } catch (error) {
         return error
     }
+};
 
-
+export const editPizza = async (pizza, _ownerId) => {
+    const data = { ...pizza, _ownerId };
+    try {
+        const response = await fetch(`${baseUrl}/pizza/${pizza._id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        });
+        const result = await response.json();
+        if (response.ok) {
+            return result
+        } else {
+            throw new Error(result.error);
+        }
+    } catch (error) {
+        return error
+    }
 }
