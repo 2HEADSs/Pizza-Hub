@@ -12,19 +12,19 @@ import { HomeList } from './components/HomeList/HomeList';
 import { PizzaDetails } from './components/PizzaDetails/PizzaDetails';
 import { EditPizza } from './components/EditPizza/EditPizza';
 import { useState } from 'react';
+import { useLocalStorage } from './hooks/localStorage';
 
 
 function App() {
-  const [user, setUser] = useState({})
+  const [user, setUser] = useLocalStorage('auth', {})
 
   const setUserSession = (data) => {
-    setUser({...data })
-
+    setUser({ ...data })
   }
 
   return (
     <>
-      <AuthContext.Provider value={{ setUserSession, user}}>
+      <AuthContext.Provider value={{ setUserSession, user }}>
         <Header />
         <Routes>
           <Route path='/' element={<HomeList />} />
