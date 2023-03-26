@@ -18,8 +18,10 @@ export const Register = () => {
         email: '',
         username: '',
         password: '',
-        repass: ''
+        repass: '',
+        serverError: ''
     });
+
     const navigate = useNavigate();
     const { setUserSession } = useContext(AuthContext);
 
@@ -29,6 +31,16 @@ export const Register = () => {
         e.preventDefault();
         //TODOcheck if both password are same
         const responseData = await authRegister(registerFormData);
+        if (responseData?.message) {
+            return setErrors({ ...errors, serverError: responseData.message })
+        }
+        if (responseData?._id) {
+            setUserSession(responseData)
+            navigate('/');
+        }
+
+
+
         setUserSession(responseData)
         //TODOcheck if server return error
         //TODOerror handler
@@ -52,6 +64,9 @@ export const Register = () => {
     return (
         <div className="register-form-wrap">
             <h2>Register</h2>
+            {errors && (
+                <h2 className='create-error'>{errors.serverError}</h2>
+            )}
             <form className="register-form" onSubmit={registerHandler}>
                 <input
                     type="email"
