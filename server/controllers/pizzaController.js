@@ -12,12 +12,11 @@ pizzaController.get("/", async (req, res) => {
 });
 
 pizzaController.get('/my-pizzas', async (req, res) => {
-    const pizza = await getByUserId(req.user._id);
-    res.status(200).json(pizza)
+    const pizzas = await getByUserId(req.user._id);
+    res.status(200).json(pizzas)
 });
 
 pizzaController.get('/my-likes', async (req, res) => {
-
     try {
         const pizza = await getMyLikes(req.user._id)
         return res.status(200).json(pizza)
