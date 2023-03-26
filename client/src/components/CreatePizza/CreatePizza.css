@@ -22,6 +22,10 @@
     margin: 0 auto;
 }
 
+.create-error {
+    color: red;
+}
+
 /* p {
     position: relative;
 } */
