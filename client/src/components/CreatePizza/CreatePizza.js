@@ -21,7 +21,7 @@ export const CreatePizza = () => {
     const { user } = useContext(AuthContext);
 
     const createPizzaHandler = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
         const response = await pizzaService.create(pizzaData, user.accessToken);
 
         if (response?.message) {
@@ -32,7 +32,7 @@ export const CreatePizza = () => {
         if (response?._id) {
             navigate(`/catalog/details/${response._id}`)
         }
-        
+
     };
 
     const addPizzaData = (e) => {

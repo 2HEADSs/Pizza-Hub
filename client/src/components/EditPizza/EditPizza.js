@@ -32,7 +32,7 @@ export const EditPizza = () => {
 
     const editPizzaHandler = async (e) => {
         e.preventDefault()
-        const response = await pizzaService.editPizza(pizzaData, user._id);
+        const response = await pizzaService.editPizza(pizzaData, user.accessToken);
         if (response.message) {
             return setErrors(response.message.split(":")[2])
         }

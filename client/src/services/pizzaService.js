@@ -18,14 +18,16 @@ export const getOnePizza = async (pizzaId) => {
     return result
 };
 
-export const getMyPizza = async (userId) => {
-    const response = await fetch(`${baseUrl}/pizza/my-pizzas`, { headers: { 'x-authorization': userId } });
+export const getMyPizza = async (token) => {
+    const response = await fetch(`${baseUrl}/pizza/my-pizzas`, {
+        headers: {
+            'content-type': 'application/json',
+            'x-authorization': token
+        },
+    });
     const result = await response.json();
-    console.log(result);
     return result
 }
-
-
 
 
 export const create = async (pizza, token) => {
@@ -51,15 +53,15 @@ export const create = async (pizza, token) => {
     }
 };
 
-export const editPizza = async (pizza, _ownerId) => {
-    const data = { ...pizza, _ownerId };
+export const editPizza = async (pizza, token) => {
     try {
         const response = await fetch(`${baseUrl}/pizza/${pizza._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
+                'x-authorization': token
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(pizza)
         });
         const result = await response.json();
         if (response.ok) {

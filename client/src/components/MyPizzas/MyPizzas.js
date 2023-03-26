@@ -12,13 +12,13 @@ export const MyPizzas = () => {
     const { user } = useContext(AuthContext);
 
     useEffect(() => {
-        pizzaService.getMyPizza(user._id)
+        pizzaService.getMyPizza(user.accessToken)
             .then(pizzas => setMyPizzas(pizzas))
     }, []);
 
     return (
         <section className="catalog">
-            <h2>All Pizzas</h2>
+            <h2>{user.username} pizzas</h2>
             <article className='card-wrapper'>
                 {myPizzas.map(pizza =>
                     <SinglePiza pizza={pizza} key={pizza._id} />

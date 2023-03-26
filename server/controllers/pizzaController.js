@@ -18,8 +18,8 @@ pizzaController.get('/my-pizzas', async (req, res) => {
 
 pizzaController.get('/my-likes', async (req, res) => {
     try {
-        const pizza = await getMyLikes(req.user._id)
-        return res.status(200).json(pizza)
+        const pizzas = await getMyLikes(req.user._id)
+        return res.status(200).json(pizzas)
     } catch (error) {
         console.log(error);
         res.status(400).json({ error: error.message })
@@ -43,24 +43,25 @@ pizzaController.get('/:id', async (req, res) => {
 
 pizzaController.post("/", async (req, res) => {
     try {
-        const pizza = await create(req.body);
-        res.status(200).json(pizza);
+        const data = Object.assign({ _ownerId: req.user._id }, req.body)
+        const pizza = await create(data);
+        //todo error
+        res.json(pizza)
     } catch (error) {
-        res.status(400).json({ error: error.message });
+        // const message = parseError(err)
         console.log(error);
+        res.status(400).json({ error: error.message })
     }
+    res.end()
 });
 
 
 pizzaController.put('/:id', async (req, res) => {
-
     try {
         const pizza = await getById(req.params.id);
-        const owner = pizza._ownerId._id.toString();
-        if (req.body._ownerId != owner) {
-            return res.status(403).json({ error: 'You cannot modify this record' })
-        };
-
+        if (req.user._id != pizza._ownerId._id) {
+            return res.status(403).json({ message: 'You cannot modify this record' })
+        }
         const result = await update(req.params.id, req.body);
         res.status(200).json(result)
     } catch (err) {
