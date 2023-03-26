@@ -26,7 +26,6 @@ pizzaController.get('/my-likes', async (req, res) => {
     }
 })
 
-
 pizzaController.get('/:id', async (req, res) => {
     try {
         const pizza = await getById(req.params.id)

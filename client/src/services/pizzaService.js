@@ -1,5 +1,5 @@
-const baseUrl = 'http://localhost:3030';
 
+const baseUrl = 'http://localhost:3030';
 
 export const getAll = async () => {
     try {
@@ -62,6 +62,25 @@ export const editPizza = async (pizza, token) => {
                 'x-authorization': token
             },
             body: JSON.stringify(pizza)
+        });
+        const result = await response.json();
+        if (response.ok) {
+            return result
+        } else {
+            throw new Error(result.error);
+        }
+    } catch (error) {
+        return error
+    }
+};
+
+export const likePizza = async (pizzaId, token) => {
+    try {
+        const response = await fetch(`${baseUrl}/pizza/like/${pizzaId}`, {
+            headers: {
+                'content-type': 'application/json',
+                'x-authorization': token
+            }
         });
         const result = await response.json();
         if (response.ok) {
