@@ -9,15 +9,24 @@ export const HomeList = () => {
         pizzaService.getAll()
             .then(pizzas => setPizza(pizzas))
     }, [])
+    const hasPizzas = allPizas.length > 0;
 
     return (
-        <section className="last-added">
-            <h2>Last added</h2>
-            <article className='card-wrapper'>
-                {allPizas.slice(-5 ).map(pizza =>
-                    <SinglePiza pizza={pizza} key={pizza._id} />
-                )}
-            </article>
-        </section>
+        < section className="last-added" >
+            {hasPizzas && (
+                <>
+                    <h2>Last added</h2>
+                    <article className='card-wrapper'>
+                        {allPizas.slice(-5).map(pizza =>
+                            <SinglePiza pizza={pizza} key={pizza._id} />
+                        )}
+                    </article>
+                </>
+            )}
+            {!hasPizzas && (
+                <h2>No Pizzas</h2>
+            )}
+        </section >
     )
 }
+
