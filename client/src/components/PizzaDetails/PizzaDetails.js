@@ -40,16 +40,20 @@ export const PizzaDetails = () => {
                 </div>
                 <p>How to prepare: <span>{pizza.recipe}</span></p>
 
-                {isOwner && (
-                    <Link to={`/catalog/edit/${pizza._id}`} className="edit-link">Edit</Link>
-                )}
-                {!isOwner && (
+                {user && (
                     <>
-                        <a className="add-to-favourite-heart" onMouseEnter={() => setIsShown(true)}
-                            onMouseLeave={() => setIsShown(false)}><i className="fa-solid fa-heart"></i></a>
+                        {isOwner && (
+                            <Link to={`/catalog/edit/${pizza._id}`} className="edit-link">Edit</Link>
+                        )}
+                        {!isOwner && (
+                            <>
+                                <a className="add-to-favourite-heart" onMouseEnter={() => setIsShown(true)}
+                                    onMouseLeave={() => setIsShown(false)}><i className="fa-solid fa-heart"></i></a>
 
-                        {isShown && (
-                            <h3 className="add-to-favourite-info">Click on heart add in your favourite list! </h3>
+                                {isShown && (
+                                    <h3 className="add-to-favourite-info">Click on heart add in your favourite list! </h3>
+                                )}
+                            </>
                         )}
                     </>
                 )}
