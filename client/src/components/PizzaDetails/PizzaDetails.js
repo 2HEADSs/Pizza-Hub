@@ -23,13 +23,14 @@ export const PizzaDetails = () => {
     const { user } = useContext(AuthContext);
     const isOwner = user?._id === pizza?._ownerId?._id;
     const hasUser = user._id ? true : false;
+    const alreadyLiked = pizza?.likes?.includes(user._id);
 
     const likeHandler = async (e) => {
-        console.log(e);
         const response = await pizzaService.likePizza(pizza._id, user.accessToken);
-        // if(response.ok)(
-        //     //todo add new likes to state
-        // )
+        if (response._id) {
+            console.log(response);
+            setPizza({ ...response })
+        }
     }
 
     return (
@@ -54,7 +55,7 @@ export const PizzaDetails = () => {
                         {isOwner && (
                             <Link to={`/catalog/edit/${pizza._id}`} className="edit-link">Edit</Link>
                         )}
-                        {(!isOwner && hasUser) && (
+                        {(!isOwner && hasUser && !alreadyLiked) && (
                             <>
                                 <a className="add-to-favourite-heart" onClick={likeHandler} onMouseEnter={() => setIsShown(true)}
                                     onMouseLeave={() => setIsShown(false)}><i className="fa-solid fa-heart"></i></a>
