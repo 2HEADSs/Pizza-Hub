@@ -23,7 +23,7 @@ export const PizzaDetails = () => {
     const { user } = useContext(AuthContext);
     const isOwner = user?._id === pizza?._ownerId?._id;
     const hasUser = user._id ? true : false;
-    const alreadyLiked = pizza?.likes?.includes(user?._id);
+    const alreadyLiked = !!pizza?.likes?.includes(user?._id);
 
     const likeHandler = async (e) => {
         const response = await pizzaService.likePizza(pizza._id, user.accessToken);
@@ -33,6 +33,7 @@ export const PizzaDetails = () => {
         }
     }
 
+    // TODO remove from my likes
     return (
         < section className="details-wrapper" >
             <img src={pizza.img} alt={pizza.name} className="details-img" />
