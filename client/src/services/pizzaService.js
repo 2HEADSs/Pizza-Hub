@@ -91,4 +91,23 @@ export const likePizza = async (pizzaId, token) => {
     } catch (error) {
         return error
     }
+};
+
+export const getMyLikes = async (token) => {
+    try {
+        const response = await fetch(`${baseUrl}/pizza/my-likes`, {
+            headers: {
+                'content-type': 'application/json',
+                'x-authorization': token
+            }
+        });
+        const result = await response.json();
+        if (response.ok) {
+            return result
+        } else {
+            throw new Error(result.error);
+        }
+    } catch (error) {
+        return error
+    }
 }
