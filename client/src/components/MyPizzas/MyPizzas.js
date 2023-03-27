@@ -25,7 +25,7 @@ export const MyPizzas = () => {
                 )}
             </article>
             {myPizzas.length === 0 && (
-                <h3>No Pizzas</h3>
+                <h3>You don't have own pizzas!!!</h3>
             )}
         </section>
     );
