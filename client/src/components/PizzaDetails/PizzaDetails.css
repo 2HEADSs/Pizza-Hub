@@ -111,3 +111,10 @@
     cursor: pointer;
     scale: 1.5;
 }
+
+.allready-liked {
+    position: absolute;
+    text-align: center;
+    right: 20px;
+    bottom: 24px
+}

@@ -23,7 +23,7 @@ export const PizzaDetails = () => {
     const { user } = useContext(AuthContext);
     const isOwner = user?._id === pizza?._ownerId?._id;
     const hasUser = user._id ? true : false;
-    const alreadyLiked = pizza?.likes?.includes(user._id);
+    const alreadyLiked = pizza?.likes?.includes(user?._id);
 
     const likeHandler = async (e) => {
         const response = await pizzaService.likePizza(pizza._id, user.accessToken);
@@ -50,23 +50,24 @@ export const PizzaDetails = () => {
                 </div>
                 <p>How to prepare: <span>{pizza.recipe}</span></p>
 
-                {user && (
-                    <>
-                        {isOwner && (
-                            <Link to={`/catalog/edit/${pizza._id}`} className="edit-link">Edit</Link>
-                        )}
-                        {(!isOwner && hasUser && !alreadyLiked) && (
-                            <>
-                                <a className="add-to-favourite-heart" onClick={likeHandler} onMouseEnter={() => setIsShown(true)}
-                                    onMouseLeave={() => setIsShown(false)}><i className="fa-solid fa-heart"></i></a>
+                {isOwner && (
+                    <Link to={`/catalog/edit/${pizza._id}`} className="edit-link">Edit</Link>
+                )}
+                {alreadyLiked && (
+                    <h3 className="allready-liked">Already liked! </h3>
 
-                                {isShown && (
-                                    <h3 className="add-to-favourite-info">Click on heart add in your favourite list! </h3>
-                                )}
-                            </>
+                )}
+                {(!isOwner && hasUser && !alreadyLiked) && (
+                    <>
+                        <a className="add-to-favourite-heart" onClick={likeHandler} onMouseEnter={() => setIsShown(true)}
+                            onMouseLeave={() => setIsShown(false)}><i className="fa-solid fa-heart"></i></a>
+
+                        {isShown && (
+                            <h3 className="add-to-favourite-info">Click on heart add in your favourite list! </h3>
                         )}
                     </>
                 )}
+
             </article>
         </section >
     )
