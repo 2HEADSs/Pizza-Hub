@@ -92,7 +92,6 @@ pizzaController.get('/like/:id', async (req, res) => {
             try {
                 await likePizza(req.params.id, req.user._id);
                 const pizza = await getById(req.params.id)
-
                 return res.status(200).json(pizza)
             } catch (error) {
                 res.status(400).json({ err: error.message })
