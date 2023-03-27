@@ -13,6 +13,7 @@ import { PizzaDetails } from './components/PizzaDetails/PizzaDetails';
 import { EditPizza } from './components/EditPizza/EditPizza';
 import { useLocalStorage } from './hooks/localStorage';
 import { MyPizzas } from './components/MyPizzas/MyPizzas';
+import { MyFavourite } from './components/MyFavourite/MyFavourite';
 
 
 function App() {
@@ -28,10 +29,11 @@ function App() {
         <Header />
         <Routes>
           <Route path='/' element={<HomeList />} />
+          <Route path='/catalog' element={<Catalog />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
-          <Route path='/catalog' element={<Catalog />} />
           <Route path='/my-pizza' element={<MyPizzas />} />
+          <Route path='/my-favourite' element={<MyFavourite />} />
           <Route path='/create' element={<CreatePizza />} />
           <Route path='/catalog/details/:pizzaId' element={<PizzaDetails />} />
           <Route path='/catalog/edit/:pizzaId' element={<EditPizza />} />
