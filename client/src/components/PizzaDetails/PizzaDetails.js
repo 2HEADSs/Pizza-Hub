@@ -10,31 +10,31 @@ import { AuthContext } from '../../context/AuthContext';
 export const PizzaDetails = () => {
     const { pizzaId } = useParams();
     const [pizza, setPizza] = useState({})
+    const [alreadyLiked, setAlreadyLiked] = useState(undefined)
     const [isShown, setIsShown] = useState(false);
-
+    const { user } = useContext(AuthContext);
     useEffect(() => {
         pizzaService.getOnePizza(pizzaId)
             .then(result => {
                 setPizza(result)
-
+                setAlreadyLiked(result?.likes?.includes(user?._id));
             })
+            .catch(err => console.log(err))
     }, [pizzaId]);
 
-    const { user } = useContext(AuthContext);
+
     const isOwner = user?._id === pizza?._ownerId?._id;
     const hasUser = user._id ? true : false;
-    const alreadyLiked = !!pizza?.likes?.includes(user?._id);
 
     const likeHandler = async (e) => {
         const response = await pizzaService.likePizza(pizza._id, user.accessToken);
         if (response._id) {
-            console.log(response);
-            setPizza({ ...response })
+            setAlreadyLiked(true)
         }
-    }
-
+    };
     // TODO remove from my likes
     return (
+
         < section className="details-wrapper" >
             <img src={pizza.img} alt={pizza.name} className="details-img" />
             <article className="details-info">
@@ -58,7 +58,7 @@ export const PizzaDetails = () => {
                     <h3 className="allready-liked">Already liked! </h3>
 
                 )}
-                {(!isOwner && hasUser && !alreadyLiked) && (
+                {(!alreadyLiked && hasUser && alreadyLiked !== undefined) && (
                     <>
                         <a className="add-to-favourite-heart" onClick={likeHandler} onMouseEnter={() => setIsShown(true)}
                             onMouseLeave={() => setIsShown(false)}><i className="fa-solid fa-heart"></i></a>
