@@ -1,9 +1,9 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useContext } from 'react';
-import { AuthContext } from '../../context/AuthContext';
 
 import './Register.css';
+import { AuthContext } from '../../context/AuthContext';
 import { authRegister } from '../../services/authService';
 
 
@@ -25,51 +25,31 @@ export const Register = () => {
     const navigate = useNavigate();
     const { setUserSession } = useContext(AuthContext);
 
-
-
     const registerHandler = async (e) => {
         e.preventDefault();
-        //TODOcheck if both password are same
         const responseData = await authRegister(registerFormData);
         if (responseData?.message) {
             return setErrors({ ...errors, serverError: responseData.message })
-        }
+        };
+
         if (responseData?._id) {
             setUserSession(responseData)
             navigate('/');
         }
-
-
-
-        setUserSession(responseData)
-        //TODOcheck if server return error
-        //TODOerror handler
-        //TODOawait - race conditions
-        navigate('/');
-        setRegisterData({
-            email: '',
-            username: '',
-            password: '',
-            repass: ''
-        })
     };
 
 
 
     const addRegisterData = (e) => {
         setRegisterData({ ...registerFormData, [e.target.name]: e.target.value });
-        setErrors(state => ({ ...state, [e.target.name]: false }));
-        //todo not sure to remove server errors
-        // setErrors(state => ({ ...state, [e.target.name]: false, ["serverError"]: false }));
+        setErrors(state => ({ ...state, [e.target.name]: false, ["serverError"]: false }));
     };
 
     const onBlurHandler = (e) => {
-
         if (e.target.name === 'email') {
             const emailRegex = /^[a-zA-Z0-9._%+-]{3,}@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
             if (!e.target.value.match(emailRegex)) {
                 setErrors(state => ({ ...state, [e.target.name]: true }));
-                console.log(errors);
             }
 
         } else if (e.target.name === 'username' &&
@@ -84,9 +64,9 @@ export const Register = () => {
             registerFormData.password !== e.target.value) {
             setErrors(state => ({ ...state, [e.target.name]: true }))
         }
-    }
+    };
 
-
+//TODO hide register input if there are errors or empty fields
     return (
         <div className="register-form-wrap">
             <h2>Register</h2>
@@ -142,6 +122,7 @@ export const Register = () => {
                 {errors.repass && (
                     <p className='create-error'>Password dismatch!</p>
                 )}
+
                 <input type="submit" className="register" value="Register" />
             </form>
             <div className="already-have-account-wrapper">
