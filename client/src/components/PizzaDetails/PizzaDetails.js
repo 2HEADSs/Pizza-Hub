@@ -58,8 +58,9 @@ export const PizzaDetails = () => {
                     <h3 className="allready-liked">Already liked! </h3>
 
                 )}
-                {(!alreadyLiked && hasUser && alreadyLiked !== undefined) && (
+                {(!alreadyLiked && hasUser && alreadyLiked !== undefined && !isOwner) && (
                     <>
+                        
                         <a className="add-to-favourite-heart" onClick={likeHandler} onMouseEnter={() => setIsShown(true)}
                             onMouseLeave={() => setIsShown(false)}><i className="fa-solid fa-heart"></i></a>
 
