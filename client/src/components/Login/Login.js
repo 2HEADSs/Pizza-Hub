@@ -11,39 +11,55 @@ export const Login = () => {
         email: '',
         password: ''
     });
-    const [errors, setErrors] = useState("")
+    const [errors, setErrors] = useState({
+        email: false,
+        password: false,
+        serverError: false
+    });
 
-    const { setUserSession } = useContext(AuthContext);
     const navigate = useNavigate();
+    const { setUserSession } = useContext(AuthContext);
 
 
     const loginHandler = async (e) => {
         e.preventDefault();
         const responseData = await authLogin(loginFormData);
         if (responseData?.message) {
-            return setErrors(responseData.message)
-        }
+            return setErrors({ ...errors, serverError: responseData.message })
+
+        };
+
         if (responseData?._id) {
             setUserSession(responseData)
             navigate('/');
         }
 
-        // setLoginData({
-        //     email: '',
-        //     password: ''
-        // })
 
     };
 
     const addLoginData = (e) => {
-        setLoginData({ ...loginFormData, [e.target.name]: e.target.value })
-    }
+        setLoginData({ ...loginFormData, [e.target.name]: e.target.value });
+        setErrors(state => ({ ...state, [e.target.name]: false, ["serverError"]: false }));
+    };
+
+    const onBlurHandler = (e) => {
+        if (e.target.name === 'email') {
+            const emailRegex = /^[a-zA-Z0-9._%+-]{3,}@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!e.target.value.match(emailRegex)) {
+                setErrors(state => ({ ...state, [e.target.name]: true }));
+            }
+        } else if (e.target.name === 'password' &&
+            (e.target.value.length < 3 || e.target.value.length > 10)) {
+            setErrors(state => ({ ...state, [e.target.name]: true }))
+
+        }
+    };
 
     return (
         <div className="login-form-wrap">
             <h2>Login</h2>
             {errors && (
-                <h2 className='create-error'>{errors}</h2>
+                <h2 className='create-error'>{errors.serverError}</h2>
             )}
             <form className="login-form" onSubmit={loginHandler}>
                 <input
@@ -53,7 +69,11 @@ export const Login = () => {
                     placeholder="Email"
                     value={loginFormData.email}
                     onChange={addLoginData}
+                    onBlur={onBlurHandler}
                 />
+                {errors.email && (
+                    <p className='create-error'>Invalid email</p>
+                )}
                 <input
                     type="password"
                     className="password"
@@ -61,7 +81,11 @@ export const Login = () => {
                     placeholder="Enter your password"
                     value={loginFormData.password}
                     onChange={addLoginData}
+                    onBlur={onBlurHandler}
                 />
+                {errors.password && (
+                    <p className='create-error'>Username must be between 3 and 10 characters!</p>
+                )}
                 <input
                     type="submit"
                     className="login"
