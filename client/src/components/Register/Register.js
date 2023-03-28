@@ -15,11 +15,11 @@ export const Register = () => {
         repass: ''
     });
     const [errors, setErrors] = useState({
-        email: '',
-        username: '',
-        password: '',
-        repass: '',
-        serverError: ''
+        email: false,
+        username: false,
+        password: false,
+        repass: false,
+        serverError: false
     });
 
     const navigate = useNavigate();
@@ -57,7 +57,33 @@ export const Register = () => {
 
 
     const addRegisterData = (e) => {
-        setRegisterData({ ...registerFormData, [e.target.name]: e.target.value })
+        setRegisterData({ ...registerFormData, [e.target.name]: e.target.value });
+        setErrors(state => ({ ...state, [e.target.name]: false }));
+        //todo not sure to remove server errors
+        // setErrors(state => ({ ...state, [e.target.name]: false, ["serverError"]: false }));
+    };
+
+    const onBlurHandler = (e) => {
+
+        if (e.target.name === 'email') {
+            const emailRegex = /^[a-zA-Z0-9._%+-]{3,}@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!e.target.value.match(emailRegex)) {
+                setErrors(state => ({ ...state, [e.target.name]: true }));
+                console.log(errors);
+            }
+
+        } else if (e.target.name === 'username' &&
+            (e.target.value.length < 3 || e.target.value.length > 10)) {
+            setErrors(state => ({ ...state, [e.target.name]: true }))
+
+        } else if (e.target.name === 'password' &&
+            (e.target.value.length < 3 || e.target.value.length > 10)) {
+            setErrors(state => ({ ...state, [e.target.name]: true }))
+
+        } else if (e.target.name === 'repass' &&
+            registerFormData.password !== e.target.value) {
+            setErrors(state => ({ ...state, [e.target.name]: true }))
+        }
     }
 
 
@@ -75,7 +101,11 @@ export const Register = () => {
                     placeholder="Email Address"
                     value={registerFormData.email}
                     onChange={addRegisterData}
+                    onBlur={onBlurHandler}
                 />
+                {errors.email && (
+                    <p className='create-error'>Invalid email</p>
+                )}
                 <input
                     type="text"
                     className="username"
@@ -83,7 +113,11 @@ export const Register = () => {
                     placeholder="Username"
                     value={registerFormData.username}
                     onChange={addRegisterData}
+                    onBlur={onBlurHandler}
                 />
+                {errors.username && (
+                    <p className='create-error'>Username must be between 3 and 10 characters!</p>
+                )}
                 <input
                     type="password"
                     className="password"
@@ -91,7 +125,11 @@ export const Register = () => {
                     placeholder="Enter your password"
                     value={registerFormData.password}
                     onChange={addRegisterData}
+                    onBlur={onBlurHandler}
                 />
+                {errors.password && (
+                    <p className='create-error'>Password must be between 3 and 10 characters!</p>
+                )}
                 <input
                     type="password"
                     className="repass"
@@ -99,8 +137,11 @@ export const Register = () => {
                     placeholder="Repeat your password"
                     value={registerFormData.repass}
                     onChange={addRegisterData}
+                    onBlur={onBlurHandler}
                 />
-
+                {errors.repass && (
+                    <p className='create-error'>Password dismatch!</p>
+                )}
                 <input type="submit" className="register" value="Register" />
             </form>
             <div className="already-have-account-wrapper">
