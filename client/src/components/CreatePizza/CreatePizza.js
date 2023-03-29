@@ -83,6 +83,7 @@ export const CreatePizza = () => {
         <div className="create-form-wrap">
             <h2>Create your precious </h2>
             <form className="create-form" onSubmit={createPizzaHandler}>
+            <label htmlFor="name">Name:</label>
                 <input
                     type="text"
                     className="name"
@@ -95,6 +96,8 @@ export const CreatePizza = () => {
                 {errors.name && (
                     <p className='create-error'>Name must be between 2 and 30 characters.</p>
                 )}
+                <label htmlFor="type">Type:</label>
+
                 <select className="type"
                     name="type" value={pizzaData.type}
                     onChange={addPizzaData}>
