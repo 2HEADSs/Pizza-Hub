@@ -23,6 +23,10 @@ export const Login = () => {
 
     const loginHandler = async (e) => {
         e.preventDefault();
+        if (Object.values(loginFormData).some(x => x === "") && Object.values(errors).some(x => x === false)) {
+            setErrors(state => ({ ...state, ["serverError"]: 'Fill all fields!' }));
+            return;
+        }
         const responseData = await authLogin(loginFormData);
         if (responseData?.message) {
             return setErrors({ ...errors, serverError: responseData.message })
@@ -58,9 +62,7 @@ export const Login = () => {
     return (
         <div className="login-form-wrap">
             <h2>Login</h2>
-            {errors && (
-                <h2 className='create-error'>{errors.serverError}</h2>
-            )}
+
             <form className="login-form" onSubmit={loginHandler}>
                 <input
                     type="text"
@@ -85,6 +87,9 @@ export const Login = () => {
                 />
                 {errors.password && (
                     <p className='create-error'>Username must be between 3 and 10 characters!</p>
+                )}
+                {errors && (
+                    <h2 className='create-error'>{errors.serverError}</h2>
                 )}
                 <input
                     type="submit"
