@@ -20,10 +20,9 @@ export const Login = () => {
     const navigate = useNavigate();
     const { setUserSession } = useContext(AuthContext);
 
-
     const loginHandler = async (e) => {
         e.preventDefault();
-        if (Object.values(loginFormData).some(x => x === "") && Object.values(errors).some(x => x === false)) {
+        if (Object.values(loginFormData).some(x => x === "") || Object.values(errors).some(x => x === true)) {
             setErrors(state => ({ ...state, ["serverError"]: 'Fill all fields!' }));
             return;
         }
@@ -64,6 +63,7 @@ export const Login = () => {
             <h2>Login</h2>
 
             <form className="login-form" onSubmit={loginHandler}>
+                <label htmlFor="email">Email:</label>
                 <input
                     type="text"
                     className="email"
@@ -76,6 +76,8 @@ export const Login = () => {
                 {errors.email && (
                     <p className='create-error'>Invalid email</p>
                 )}
+                
+                <label htmlFor="password">Password:</label>
                 <input
                     type="password"
                     className="password"
