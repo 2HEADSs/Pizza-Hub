@@ -112,7 +112,6 @@ export const EditPizza = () => {
                     <option onChange={addPizzaData} value="Whole grain">Whole grain</option>
                     <option onChange={addPizzaData} value="Vegan">Vegan</option>
                     <option onChange={addPizzaData} value="Gluten free">Gluten free</option>
-
                 </select>
                 <label htmlFor="ingrediants">Ingrediants:</label>
                 <input
@@ -167,7 +166,6 @@ export const EditPizza = () => {
                     <p className='create-error'>Invalid URL, must start with HTTP/HTTPS</p>
                 )}
                 <label htmlFor="recipe">Describe preparation...</label>
-
                 <textarea
                     className="recipe"
                     name="recipe"

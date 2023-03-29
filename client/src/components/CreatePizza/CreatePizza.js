@@ -83,7 +83,7 @@ export const CreatePizza = () => {
         <div className="create-form-wrap">
             <h2>Create your precious </h2>
             <form className="create-form" onSubmit={createPizzaHandler}>
-            <label htmlFor="name">Name:</label>
+                <label htmlFor="name">Name:</label>
                 <input
                     type="text"
                     className="name"
@@ -97,7 +97,6 @@ export const CreatePizza = () => {
                     <p className='create-error'>Name must be between 2 and 30 characters.</p>
                 )}
                 <label htmlFor="type">Type:</label>
-
                 <select className="type"
                     name="type" value={pizzaData.type}
                     onChange={addPizzaData}>
@@ -106,6 +105,7 @@ export const CreatePizza = () => {
                     <option onChange={addPizzaData} value="Vegan">Vegan</option>
                     <option onChange={addPizzaData} value="Gluten free">Gluten free</option>
                 </select>
+                <label htmlFor="ingrediants">Ingrediants:</label>
                 <input
                     type="text"
                     className="ingrediants"
@@ -118,6 +118,7 @@ export const CreatePizza = () => {
                 {errors.ingrediants && (
                     <p className='create-error'>Ingrediants must be between 10 and 150 characters.</p>
                 )}
+                <label htmlFor="prepTime">Preparation time:</label>
                 <input
                     type="number"
                     className="prepTime"
@@ -130,6 +131,7 @@ export const CreatePizza = () => {
                 {errors.prepTime && (
                     <p className='create-error'>Preparation Time must be between 0 and 60 minutes.</p>
                 )}
+                <label htmlFor="cookTime">Cooking time:</label>
                 <input
                     type="number"
                     className="cookTime"
@@ -142,6 +144,7 @@ export const CreatePizza = () => {
                 {errors.cookTime && (
                     <p className='create-error'>Cooking Time must be between 0 and 60 minutes.</p>
                 )}
+                <label htmlFor="img">Image Link</label>
                 <input
                     type="text"
                     className="img"
@@ -154,6 +157,7 @@ export const CreatePizza = () => {
                 {errors.img && (
                     <p className='create-error'>Invalid URL, must start with HTTP/HTTPS</p>
                 )}
+                <label htmlFor="recipe">Describe preparation...</label>
                 <textarea
                     className="recipe"
                     name="recipe"
