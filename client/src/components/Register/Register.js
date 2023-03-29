@@ -27,6 +27,10 @@ export const Register = () => {
 
     const registerHandler = async (e) => {
         e.preventDefault();
+        if (Object.values(registerFormData).some(x => x === "") && Object.values(errors).some(x => x === false)) {
+            setErrors(state => ({ ...state, ["serverError"]: 'Fill all fields!' }));
+            return;
+        }
         const responseData = await authRegister(registerFormData);
         if (responseData?.message) {
             return setErrors({ ...errors, serverError: responseData.message })
@@ -66,13 +70,10 @@ export const Register = () => {
         }
     };
 
-//TODO hide register input if there are errors or empty fields
+    //TODO hide register input if there are errors or empty fields
     return (
         <div className="register-form-wrap">
             <h2>Register</h2>
-            {errors && (
-                <h2 className='create-error'>{errors.serverError}</h2>
-            )}
             <form className="register-form" onSubmit={registerHandler}>
                 <input
                     type="email"
@@ -119,8 +120,13 @@ export const Register = () => {
                     onChange={addRegisterData}
                     onBlur={onBlurHandler}
                 />
+
                 {errors.repass && (
                     <p className='create-error'>Password dismatch!</p>
+                )}
+
+                {errors && (
+                    <h2 className='create-error'>{errors.serverError}</h2>
                 )}
 
                 <input type="submit" className="register" value="Register" />
