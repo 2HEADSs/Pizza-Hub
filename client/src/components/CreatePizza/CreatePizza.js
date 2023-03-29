@@ -32,6 +32,10 @@ export const CreatePizza = () => {
 
     const createPizzaHandler = async (e) => {
         e.preventDefault();
+        if (Object.values(pizzaData).some(x => x === " ") && Object.values(errors).some(x => x === false)) {
+            setErrors(state => ({ ...state, ["serverError"]: 'Fill all fields!' }));
+            return;
+        }
         const response = await pizzaService.create(pizzaData, user.accessToken);
 
         if (response?.message) {
