@@ -27,7 +27,7 @@ export const Register = () => {
 
     const registerHandler = async (e) => {
         e.preventDefault();
-        if (Object.values(registerFormData).some(x => x === "") && Object.values(errors).some(x => x === false)) {
+        if (Object.values(registerFormData).some(x => x === "") || Object.values(errors).some(x => x === true)) {
             setErrors(state => ({ ...state, ["serverError"]: 'Fill all fields!' }));
             return;
         }
@@ -70,11 +70,11 @@ export const Register = () => {
         }
     };
 
-    //TODO hide register input if there are errors or empty fields
     return (
         <div className="register-form-wrap">
             <h2>Register</h2>
             <form className="register-form" onSubmit={registerHandler}>
+                <label htmlFor="email">Email:</label>
                 <input
                     type="email"
                     className="email"
@@ -87,6 +87,7 @@ export const Register = () => {
                 {errors.email && (
                     <p className='create-error'>Invalid email</p>
                 )}
+                <label htmlFor="username">Username:</label>
                 <input
                     type="text"
                     className="username"
@@ -99,6 +100,7 @@ export const Register = () => {
                 {errors.username && (
                     <p className='create-error'>Username must be between 3 and 10 characters!</p>
                 )}
+                <label htmlFor="password">Password:</label>
                 <input
                     type="password"
                     className="password"
@@ -111,6 +113,7 @@ export const Register = () => {
                 {errors.password && (
                     <p className='create-error'>Password must be between 3 and 10 characters!</p>
                 )}
+                <label htmlFor="repass">Repeat password:</label>
                 <input
                     type="password"
                     className="repass"
