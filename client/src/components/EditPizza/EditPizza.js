@@ -70,10 +70,10 @@ export const EditPizza = () => {
             (e.target.value.length < 10 || e.target.value.length > 150)) {
             setErrors(state => ({ ...state, [e.target.name]: true }))
         } else if (e.target.name === 'prepTime' &&
-            (Number(e.target.value) < 0 || Number(e.target.value) || e.target.value !== '' > 60)) {
+            (Number(e.target.value) < 0 || Number(e.target.value)  > 60|| e.target.value === '')) {
             setErrors(state => ({ ...state, [e.target.name]: true }))
         } else if (e.target.name === 'cookTime' &&
-            (Number(e.target.value) < 0 || Number(e.target.value) || e.target.value !== '' > 60)) {
+            (Number(e.target.value) < 0 || Number(e.target.value) > 60|| e.target.value === '' )) {
             setErrors(state => ({ ...state, [e.target.name]: true }))
         } else if (e.target.name === 'img') {
             const URL_PATTERN = /https?:\/\/./i;
