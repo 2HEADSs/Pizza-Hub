@@ -110,4 +110,25 @@ export const getMyLikes = async (token) => {
     } catch (error) {
         return error
     }
+};
+
+export const deletePizza = async (pizzaId, token) => {
+    try {
+        const response = await fetch(`${baseUrl}/pizza/${pizzaId}`, {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json',
+                'x-authorization': token
+            }
+        });
+        const result = await response.json();
+        console.log(result);
+        if (response.ok) {
+            return result
+        } else {
+            throw new Error(result.error);
+        }
+    } catch (error) {
+        return error
+    }
 }
