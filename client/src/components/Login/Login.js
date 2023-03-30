@@ -88,7 +88,7 @@ export const Login = () => {
                     onBlur={onBlurHandler}
                 />
                 {errors.password && (
-                    <p className='create-error'>Username must be between 3 and 10 characters!</p>
+                    <p className='create-error'>Password must be between 3 and 10 characters!</p>
                 )}
                 {errors && (
                     <h2 className='create-error'>{errors.serverError}</h2>

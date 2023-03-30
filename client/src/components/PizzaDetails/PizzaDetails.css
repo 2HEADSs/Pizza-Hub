@@ -87,12 +87,14 @@
     padding: 0px 20px;
     text-decoration: none;
     color: #c16503;
+    transition: all 300ms ease-in-out;
 }
 
 .edit-link:hover {
     border: 3px solid #c16503;
     color: #087b29;
     font-size: 42px;
+    scale: 1.1;
 
 }
 
@@ -104,7 +106,7 @@
 }
 
 .add-to-favourite-heart {
-    transition: all .1s ease-in-out;
+    transition: all 300ms ease-in-out;
 }
 
 .add-to-favourite-heart:hover {
