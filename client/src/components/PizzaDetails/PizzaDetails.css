@@ -98,6 +98,27 @@
 
 }
 
+.delete-btn {
+    position: absolute;
+    text-align: center;
+    right: 20px;
+    bottom: 20px;
+    border: 2px solid #087b29;
+    border-radius: 8px;
+    font-size: 34px;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #c16503;
+    transition: all 300ms ease-in-out;
+}
+
+.delete-btn:hover {
+    border: 3px solid #c16503;
+    color: #087b29;
+    font-size: 42px;
+    scale: 1.02;
+}
+
 .add-to-favourite-info {
     position: absolute;
     text-align: center;
