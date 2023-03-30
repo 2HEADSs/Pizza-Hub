@@ -1,6 +1,6 @@
 const pizzaController = require("express").Router();
 
-const { getAll, create, getById, getByUserId, getMyLikes, likePizza, update, deleteById } = require("../services/pizzaService");
+const { getAll, create, getById, getByUserId, getMyLikes, likePizza, update, deleteById, deleteLikes } = require("../services/pizzaService");
 
 pizzaController.get("/", async (req, res) => {
     try {
@@ -104,6 +104,17 @@ pizzaController.get('/like/:id', async (req, res) => {
     }
 });
 
+pizzaController.get('/unlike/:id', async (req, res) => {
+    try {
+        const pizza = await getById(req.params.id);
+        const result = await deleteLikes(pizza._id, req.user._id);
+        return res.status(200).json(result)
+    }
+    catch (error) {
+        res.status(400).json({ err: error.message })
+        console.log(error);
+    }
+});
 
 module.exports = {
     pizzaController

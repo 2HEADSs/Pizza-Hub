@@ -10,7 +10,7 @@ async function getByUserId(userId) {
 };
 async function getById(id) {
     return Pizza.findById(id).populate('_ownerId')
-    
+
 };
 
 async function create(data) {
@@ -42,6 +42,12 @@ async function update(id, pizza) {
     return existing.save()
 }
 
+async function deleteLikes(id, userId) {
+    const existing = await Pizza.findById(id);
+    existing.likes = existing.likes.filter(x => x != userId);
+    return existing.save();
+}
+
 
 async function deleteById(id) {
     return Pizza.findByIdAndDelete(id)
@@ -61,6 +67,6 @@ module.exports = {
     update,
     getMyLikes,
     deleteById,
-    // getMyPizza,
+    deleteLikes,
     likePizza
 };
