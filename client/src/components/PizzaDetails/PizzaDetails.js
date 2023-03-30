@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import './PizzaDetails.css'
@@ -8,12 +8,16 @@ import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 
 export const PizzaDetails = () => {
-    const [alreadyLiked, setAlreadyLiked] = useState(undefined)
+    const [alreadyLiked, setAlreadyLiked] = useState(undefined);
     const [pizza, setPizza] = useState({});
-    const [showConfirm, setShowConfirm] = useState(true);
-    const { pizzaId } = useParams();
+    const [showConfirm, setShowConfirm] = useState(false);
     const [isShown, setIsShown] = useState(false);
+
+
+    const navigate = useNavigate();
+    const { pizzaId } = useParams();
     const { user } = useContext(AuthContext);
+
     useEffect(() => {
         pizzaService.getOnePizza(pizzaId)
             .then(result => {
@@ -34,14 +38,20 @@ export const PizzaDetails = () => {
         }
     };
 
-    const deleteHandler = async (e) => {
-        console.log(e.target);
-        const response = await pizzaService.deletePizza(pizza._id, user.accessToken)
-    }
-
     const confirmHandler = () => {
-        setShowConfirm(state => !state)
-    }
+        setShowConfirm(state => !state);
+
+    };
+
+    const deleteHandler = async (e) => {
+        const result = await pizzaService.deletePizza(pizza._id, user.accessToken);
+        setShowConfirm(state => !state);
+        if(result?.message){
+            navigate(`/my-pizza`);
+        }
+    };
+
+
 
     return (
 
