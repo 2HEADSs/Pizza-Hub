@@ -8,9 +8,10 @@ import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 
 export const PizzaDetails = () => {
-    const { pizzaId } = useParams();
-    const [pizza, setPizza] = useState({})
     const [alreadyLiked, setAlreadyLiked] = useState(undefined)
+    const [pizza, setPizza] = useState({});
+    const [showConfirm, setShowConfirm] = useState(true);
+    const { pizzaId } = useParams();
     const [isShown, setIsShown] = useState(false);
     const { user } = useContext(AuthContext);
     useEffect(() => {
@@ -37,7 +38,11 @@ export const PizzaDetails = () => {
         console.log(e.target);
         const response = await pizzaService.deletePizza(pizza._id, user.accessToken)
     }
-    // TODO remove from my likes
+
+    const confirmHandler = () => {
+        setShowConfirm(state => !state)
+    }
+
     return (
 
         < section className="details-wrapper" >
@@ -59,7 +64,6 @@ export const PizzaDetails = () => {
                 {isOwner && (
                     <>
                         <Link to={`/catalog/edit/${pizza._id}`} className="edit-link">Edit</Link>
-                        <button onClick={deleteHandler} className="delete-btn">Delete</button>
                     </>
                 )}
                 {alreadyLiked && (
@@ -77,7 +81,17 @@ export const PizzaDetails = () => {
                         )}
                     </>
                 )}
+                {isOwner && !showConfirm && (
+                    <button onClick={confirmHandler} className="delete-btn">Delete</button>
 
+                )}
+                {showConfirm && (
+                    <>
+                        <p className="confirm-question">Are you sure?</p>
+                        <button onClick={deleteHandler} className="delete-confirm">YES</button>
+                        <button onClick={confirmHandler} className="delete-not-consfirm">NO</button>
+                    </>
+                )}
             </article>
         </section >
     )
