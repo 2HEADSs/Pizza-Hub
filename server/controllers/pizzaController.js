@@ -74,13 +74,13 @@ pizzaController.put('/:id', async (req, res) => {
 pizzaController.delete('/:id', async (req, res) => {
     try {
         const pizza = await getById(req.params.id);
-
         if (req.user._id != pizza._ownerId._id) {
             return res.status(403).json({ err: err.message })
         }
         await deleteById(req.params.id);
-        res.status(204).end();
+        res.status(200).send({ message: `Item with name ${pizza.name} deleted successfully.` });
     } catch (err) {
+        console.log(err);
         res.status(400).json({ err: err.message });
     }
 });

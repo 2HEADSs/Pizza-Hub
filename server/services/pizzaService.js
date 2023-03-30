@@ -47,9 +47,6 @@ async function deleteById(id) {
     return Pizza.findByIdAndDelete(id)
 };
 
-// async function getMyPizza(id) {
-//     return await Pizza.find({ _ownerId: id })
-// }
 
 async function likePizza(pizzaId, userId) {
     const existing = await Pizza.findById(pizzaId)
