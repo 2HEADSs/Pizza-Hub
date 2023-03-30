@@ -32,6 +32,11 @@ export const PizzaDetails = () => {
             setAlreadyLiked(true)
         }
     };
+
+    const deleteHandler = async (e) => {
+        console.log(e.target);
+        const response = await pizzaService.deletePizza(pizza._id, user.accessToken)
+    }
     // TODO remove from my likes
     return (
 
@@ -52,7 +57,10 @@ export const PizzaDetails = () => {
                 <p>How to prepare: <span>{pizza.recipe}</span></p>
 
                 {isOwner && (
-                    <Link to={`/catalog/edit/${pizza._id}`} className="edit-link">Edit</Link>
+                    <>
+                        <Link to={`/catalog/edit/${pizza._id}`} className="edit-link">Edit</Link>
+                        <button onClick={deleteHandler} className="delete-btn">Delete</button>
+                    </>
                 )}
                 {alreadyLiked && (
                     <h3 className="allready-liked">Already liked! </h3>
@@ -60,7 +68,7 @@ export const PizzaDetails = () => {
                 )}
                 {(!alreadyLiked && hasUser && alreadyLiked !== undefined && !isOwner) && (
                     <>
-                        
+
                         <a className="add-to-favourite-heart" onClick={likeHandler} onMouseEnter={() => setIsShown(true)}
                             onMouseLeave={() => setIsShown(false)}><i className="fa-solid fa-heart"></i></a>
 
