@@ -122,7 +122,6 @@ export const deletePizza = async (pizzaId, token) => {
             }
         });
         const result = await response.json();
-        console.log(result);
         if (response.ok) {
             return result
         } else {
@@ -131,4 +130,24 @@ export const deletePizza = async (pizzaId, token) => {
     } catch (error) {
         return error
     }
-}
+};
+
+
+export const removeFromFavourite = async (pizzaId, token) => {
+    try {
+        const response = await fetch(`${baseUrl}/pizza/unlike/${pizzaId}`, {
+            headers: {
+                'content-type': 'application/json',
+                'x-authorization': token
+            }
+        });
+        const result = await response.json();
+        if (response.ok) {
+            return result
+        } else {
+            throw new Error(result.error);
+        }
+    } catch (error) {
+        return error
+    }
+};

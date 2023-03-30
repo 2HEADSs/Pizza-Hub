@@ -46,12 +46,19 @@ export const PizzaDetails = () => {
     const deleteHandler = async (e) => {
         const result = await pizzaService.deletePizza(pizza._id, user.accessToken);
         setShowConfirm(state => !state);
-        if(result?.message){
+        if (result?.message) {
             navigate(`/my-pizza`);
         }
     };
 
-
+    const deleteFromFavourite = async (e) => {
+        try {
+            await pizzaService.removeFromFavourite(pizza._id, user.accessToken);
+            navigate(`/my-favourite`);
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     return (
 
@@ -89,6 +96,12 @@ export const PizzaDetails = () => {
                         {isShown && (
                             <h3 className="add-to-favourite-info">Click on heart add in your favourite list! </h3>
                         )}
+                    </>
+                )}
+                {(alreadyLiked && hasUser && alreadyLiked !== undefined && !isOwner) && (
+                    <>
+                        <button onClick={deleteFromFavourite} className="deleteFromFavourite">Delete from favourite</button>
+
                     </>
                 )}
                 {isOwner && !showConfirm && (
