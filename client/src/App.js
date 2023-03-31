@@ -16,6 +16,7 @@ import { MyPizzas } from './components/MyPizzas/MyPizzas';
 import { MyFavourite } from './components/MyFavourite/MyFavourite';
 import { GuestGuard } from './guards/GuestGuard';
 import { UserGuard } from './guards/UserGuard';
+import { NotFound } from './components/NotFound/NotFound';
 
 
 function App() {
@@ -33,6 +34,8 @@ function App() {
                     <Route path='/' element={<HomeList />} />
                     <Route path='/catalog' element={<Catalog />} />
                     <Route path='/catalog/details/:pizzaId' element={<PizzaDetails />} />
+                    <Route path='*' element={<NotFound />} />
+
 
                     <Route element={<UserGuard />}>
                         <Route path='/login' element={<Login />} />
