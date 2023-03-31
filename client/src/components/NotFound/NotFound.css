@@ -1,0 +1,57 @@
+.not-found-section-wrapper {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.not-found-section-wrapper h2 {
+    text-align: center;
+}
+
+.not-found-page-wrapper {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.not-found-page-wrapper .not-found-img {
+    width: 220px;
+    height: 220px;
+    background-image: url("../../../public/static/pngwing.com.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.error-page_number {
+    font-size: 180px;
+    color: #c16503;
+}
+
+.back-to-home {
+    background-color: transparent;
+    border: 2px solid #087b29;
+    border-radius: 8px;
+    font-size: 34px;
+    padding: 0px 20px;
+    text-decoration: none;
+    transition: all 300ms ease-in-out;
+}
+
+.back-to-home a {
+    color: #c16503;
+    text-decoration: none;
+}
+
+.back-to-home a:hover {
+    color: #087b29;
+}
+
+.back-to-home:hover {
+    border: 3px solid #c16503;
+    font-size: 42px;
+    scale: 1.1;
+}
