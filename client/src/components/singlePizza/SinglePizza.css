@@ -7,11 +7,11 @@
     flex-direction: column;
     justify-content: space-between;
     flex-wrap: wrap;
+    transition: ease-in-out 300ms;
 }
 
 .single-pizza:hover {
     scale: 1.1;
-    transition: ease-in-out 300ms;
 }
 
 .single-pizza img {
@@ -37,7 +37,6 @@
     height: 33%;
 }
 
-
 .info-pizza-container span {
     font-size: 22px;
     font-weight: bold;
@@ -51,8 +50,6 @@
     background-color: transparent;
     border: 1px solid #777978;
     border-radius: 8px;
-
-
 }
 
 .info-pizza-container button:hover {
