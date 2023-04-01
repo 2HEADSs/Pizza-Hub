@@ -26,19 +26,22 @@ export const Catalog = () => {
     }, []);
     return (
         <section className="catalog">
-            <h2>All Pizzas</h2>
-            <article className='card-wrapper'>
-                {hasItems && (
-                    allPizas.map(pizza =>
-                        <SinglePiza pizza={pizza} key={pizza._id} />
-                    )
-                )}
-            </article>
+
+            {hasItems && (
+                <>
+                    <h2>All Pizzas</h2>
+                    <article className='card-wrapper'>
+                        {allPizas.map(pizza =>
+                            <SinglePiza pizza={pizza} key={pizza._id} />
+                        )}
+                    </article>
+                </>
+            )}
             {loaded && (
                 <Loading />
             )}
             {isEmpty && (
-                <h1>no content</h1>
+                <h1 className='no-server-content-header'>There is nothing to show!!!</h1>
             )}
         </section >
     );
