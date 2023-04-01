@@ -8,20 +8,28 @@ import { Loading } from '../Loading/Loading';
 export const Catalog = () => {
     const [allPizas, setPizza] = useState([]);
     const [loaded, setLoaded] = useState(true);
-    const [hasItems, setHasItems] = useState(true)
+    const [hasItems, setHasItems] = useState(false)
+    const [isEmpty, setIsEmpty] = useState(false)
     useEffect(() => {
         pizzaService.getAll()
-            .then(pizzas => {
-                // setPizza(pizzas.splice(0, 5))
+            .then(data => {
+                // setPizza(data.splice(0, 5));
                 setPizza([])
-                if (pizzas.length > 0) {
+                if (allPizas.length <= 0) {
+                    console.log(allPizas.length);
                     setLoaded(false)
+                    setIsEmpty(true)
                 } else {
                     setLoaded(false)
-                    setHasItems(false)
+                    setHasItems(true)
+                    setIsEmpty(false)
                 }
             });
     }, []);
+    console.log(allPizas);
+    console.log(loaded);
+    console.log(hasItems);
+    console.log(isEmpty);
     return (
         <section className="catalog">
             <h2>All Pizzas</h2>
@@ -35,7 +43,7 @@ export const Catalog = () => {
             {loaded && (
                 <Loading />
             )}
-            {!hasItems && (
+            {isEmpty && (
                 <h1>no content</h1>
             )}
         </section >
