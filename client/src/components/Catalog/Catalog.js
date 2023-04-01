@@ -13,23 +13,17 @@ export const Catalog = () => {
     useEffect(() => {
         pizzaService.getAll()
             .then(data => {
-                // setPizza(data.splice(0, 5));
-                setPizza([])
-                if (allPizas.length <= 0) {
-                    console.log(allPizas.length);
-                    setLoaded(false)
-                    setIsEmpty(true)
-                } else {
+                if (data.length > 0) {
                     setLoaded(false)
                     setHasItems(true)
                     setIsEmpty(false)
+                } else {
+                    setLoaded(false)
+                    setIsEmpty(true)
                 }
+                setPizza(data.splice(0, 5));
             });
     }, []);
-    console.log(allPizas);
-    console.log(loaded);
-    console.log(hasItems);
-    console.log(isEmpty);
     return (
         <section className="catalog">
             <h2>All Pizzas</h2>
