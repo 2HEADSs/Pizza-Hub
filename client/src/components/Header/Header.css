@@ -53,10 +53,7 @@
 
 .link-nav {
     --s: 0.2em;
-    /* the thickness of the line */
     --c: #c16503;
-    /* the color */
-
     color: #0000;
     padding-bottom: var(--s);
     background:
@@ -71,8 +68,6 @@
     --_p: 100%;
     cursor: pointer;
 }
-
-
 
 .navigation ul {
     display: flex;
@@ -100,9 +95,6 @@
     overflow: hidden;
     background-size: 110%;
 }
-
-
-
 
 .waviy {
     position: absolute;
