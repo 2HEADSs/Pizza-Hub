@@ -5,7 +5,7 @@ export const getAll = async () => {
     try {
         const response = await fetch(`${baseUrl}/pizza`);
         const result = await response.json();
-        return result
+        return result;
     } catch (error) {
         return [];
     }
