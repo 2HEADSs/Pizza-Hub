@@ -1,4 +1,4 @@
-.my-favourite{
+.my-favourite {
     width: 80%;
     margin: 40px auto;
     display: flex;
@@ -8,7 +8,12 @@
     gap: 40px;
 }
 
-.card-wrapper{
+.my-favourite-header {
+    font-size: 42px;
+    color: #087b29;
+}
+
+.card-wrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;

@@ -34,7 +34,7 @@ export const MyFavourite = () => {
         <section className="my-favourite">
             {hasItem && (
                 <>
-                    <h2>Your favourites</h2>
+                    <h2 className="my-favourite-header">Your favourites</h2>
                     <article className='card-wrapper'>
                         {myLikedPizzas.map(pizza =>
                             <SinglePiza pizza={pizza} key={pizza._id} />
