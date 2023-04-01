@@ -1,6 +1,6 @@
 .loading-header {
-    color: #087b29;
     font-size: 42px;
+    color: #c16503;
 }
 
 .lds-ellipsis {
@@ -8,6 +8,7 @@
     position: relative;
     width: 80px;
     height: 80px;
+    color: #c16503;
 }
 
 .lds-ellipsis div {
