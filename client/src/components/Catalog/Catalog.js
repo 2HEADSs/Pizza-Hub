@@ -29,7 +29,7 @@ export const Catalog = () => {
 
             {hasItems && (
                 <>
-                    <h2>All Pizzas</h2>
+                    <h2 className='catalog-header'>All Pizzas</h2>
                     <article className='card-wrapper'>
                         {allPizas.map(pizza =>
                             <SinglePiza pizza={pizza} key={pizza._id} />
