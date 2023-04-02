@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import './SinglePizza.css'
 
-export const SinglePiza = ({ _id, name, img, type }) => {
+export const SinglePizza = ({ _id, name, img, type }) => {
     return (
         <article className="single-pizza">
             <img src={img} alt={name} />

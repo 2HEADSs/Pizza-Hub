@@ -1,8 +1,9 @@
 import './Catalog.css'
 import { useEffect, useState } from "react";
 import * as pizzaService from '../../services/pizzaService'
-import { SinglePiza } from '../SinglePizza/SinglePizza';
+
 import { Loading } from '../Loading/Loading';
+import { SinglePizza } from '../SinglePizza/SinglePizza';
 
 
 export const Catalog = () => {
@@ -32,7 +33,7 @@ export const Catalog = () => {
                     <h2 className='catalog-header'>All Pizzas</h2>
                     <article className='card-wrapper'>
                         {allPizas.map(pizza =>
-                            <SinglePiza key={pizza._id} {...pizza} />
+                            <SinglePizza key={pizza._id} {...pizza} />
                         )}
                     </article>
                 </>

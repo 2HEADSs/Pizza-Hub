@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import './MyFavourite.css'
 import * as pizzaService from '../../services/pizzaService'
-import { SinglePiza } from '../SinglePizza/SinglePizza';
+import { SinglePizza } from '../SinglePizza/SinglePizza';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import { Loading } from "../Loading/Loading";
@@ -32,12 +32,12 @@ export const MyFavourite = () => {
 
     return (
         <section className="my-favourite">
+            <h2 className="my-favourite-header">Your favourites</h2>
             {hasItem && (
                 <>
-                    <h2 className="my-favourite-header">Your favourites</h2>
                     <article className='card-wrapper'>
                         {myLikedPizzas.map(pizza =>
-                            <SinglePiza {...pizza} key={pizza._id} />
+                            <SinglePizza {...pizza} key={pizza._id} />
                         )}
                     </article>
                 </>

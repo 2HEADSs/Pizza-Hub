@@ -1,7 +1,7 @@
 import './HomeList.css'
 import { useEffect, useState } from "react";
 import * as pizzaService from '../../services/pizzaService'
-import { SinglePiza } from "../SinglePizza/SinglePizza";
+import { SinglePizza } from "../SinglePizza/SinglePizza";
 import { Loading } from '../Loading/Loading';
 
 export const HomeList = () => {
@@ -32,7 +32,7 @@ export const HomeList = () => {
                     <h2>Last five pizzas</h2>
                     <article className='card-wrapper'>
                         {allPizas.map(pizza =>
-                            <SinglePiza {...pizza} key={pizza._id} />
+                            <SinglePizza {...pizza} key={pizza._id} />
                         )}
                     </article>
                 </>
