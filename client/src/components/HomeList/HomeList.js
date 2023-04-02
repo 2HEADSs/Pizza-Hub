@@ -5,7 +5,7 @@ import { SinglePiza } from "../SinglePizza/SinglePizza";
 import { Loading } from '../Loading/Loading';
 
 export const HomeList = () => {
-    const [allPizas, setPizza] = useState([]);
+    const [allPizas, setPizza] = useState({});
     const [loaded, setLoaded] = useState(true);
     const [hasItems, setHasItems] = useState(false)
     const [isEmpty, setIsEmpty] = useState(false)
@@ -20,7 +20,8 @@ export const HomeList = () => {
                     setLoaded(false)
                     setIsEmpty(true)
                 }
-                setPizza(data)
+                setPizza(data.splice(0, 5));
+
             })
     }, []);
 
@@ -30,8 +31,8 @@ export const HomeList = () => {
                 <>
                     <h2>Last five pizzas</h2>
                     <article className='card-wrapper'>
-                        {allPizas.slice(-5).map(pizza =>
-                            <SinglePiza pizza={pizza} key={pizza._id} />
+                        {allPizas.map(pizza =>
+                            <SinglePiza {...pizza} key={pizza._id} />
                         )}
                     </article>
                 </>

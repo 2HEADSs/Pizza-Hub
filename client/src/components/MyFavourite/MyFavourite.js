@@ -9,7 +9,7 @@ import { Loading } from "../Loading/Loading";
 
 
 export const MyFavourite = () => {
-    const [myLikedPizzas, setmyLikedPizzas] = useState([]);
+    const [myLikedPizzas, setmyLikedPizzas] = useState({});
     const [loaded, setLoaded] = useState(true);
     const [hasItem, setHasItems] = useState(false)
     const [isEmpty, setIsEmpty] = useState(false)
@@ -37,7 +37,7 @@ export const MyFavourite = () => {
                     <h2 className="my-favourite-header">Your favourites</h2>
                     <article className='card-wrapper'>
                         {myLikedPizzas.map(pizza =>
-                            <SinglePiza pizza={pizza} key={pizza._id} />
+                            <SinglePiza {...pizza} key={pizza._id} />
                         )}
                     </article>
                 </>

@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom'
 import './SinglePizza.css'
 
-export const SinglePiza = ({ pizza }) => {
+export const SinglePiza = ({ _id, name, img, type }) => {
     return (
         <article className="single-pizza">
-            <img src={pizza.img} alt={pizza.name} />
+            <img src={img} alt={name} />
             <div className='info-pizza-container'>
-                <p>Type: <span>{pizza.type}</span> </p>
-                <p>Name: <span>{pizza.name}</span> </p>
-                <button> <Link to={`/catalog/details/${pizza._id}`} className="details-link">Details</Link> </button>
+                <p>Type: <span>{type}</span> </p>
+                <p>Name: <span>{name}</span> </p>
+                <button> <Link to={`/catalog/details/${_id}`} className="details-link">Details</Link> </button>
             </div>
         </article>
 

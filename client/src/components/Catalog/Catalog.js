@@ -6,7 +6,7 @@ import { Loading } from '../Loading/Loading';
 
 
 export const Catalog = () => {
-    const [allPizas, setPizza] = useState([]);
+    const [allPizas, setPizza] = useState({});
     const [loaded, setLoaded] = useState(true);
     const [hasItems, setHasItems] = useState(false)
     const [isEmpty, setIsEmpty] = useState(false)
@@ -21,7 +21,7 @@ export const Catalog = () => {
                     setLoaded(false)
                     setIsEmpty(true)
                 }
-                setPizza(data.splice(0, 5));
+                setPizza(data);
             });
     }, []);
     return (
@@ -32,7 +32,7 @@ export const Catalog = () => {
                     <h2 className='catalog-header'>All Pizzas</h2>
                     <article className='card-wrapper'>
                         {allPizas.map(pizza =>
-                            <SinglePiza pizza={pizza} key={pizza._id} />
+                            <SinglePiza key={pizza._id} {...pizza} />
                         )}
                     </article>
                 </>

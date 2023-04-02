@@ -8,7 +8,7 @@ import { AuthContext } from '../../context/AuthContext';
 
 
 export const MyPizzas = () => {
-    const [myPizzas, setMyPizzas] = useState([]);
+    const [myPizzas, setMyPizzas] = useState({});
     const { user } = useContext(AuthContext);
 
     useEffect(() => {
@@ -21,7 +21,7 @@ export const MyPizzas = () => {
             <h2>{user.username} pizzas</h2>
             <article className='card-wrapper'>
                 {myPizzas.map(pizza =>
-                    <SinglePiza pizza={pizza} key={pizza._id} />
+                    <SinglePiza {...pizza} key={pizza._id} />
                 )}
             </article>
             {myPizzas.length === 0 && (
