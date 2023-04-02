@@ -50,8 +50,8 @@ function App() {
                     </Route>
 
                 </Routes>
-            </AuthContext.Provider>
             <Footer />
+            </AuthContext.Provider>
         </>
 
     );
