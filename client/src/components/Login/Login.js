@@ -69,20 +69,22 @@ export const Login = () => {
                     className="email"
                     name="email"
                     placeholder="Email"
+                    data-testid="email"
                     value={loginFormData.email}
                     onChange={addLoginData}
                     onBlur={onBlurHandler}
                 />
                 {errors.email && (
-                    <p className='create-error'>Invalid email</p>
+                    <p className='create-error'>Invalid email!</p>
                 )}
-                
+
                 <label htmlFor="password">Password:</label>
                 <input
                     type="password"
                     className="password"
                     name="password"
                     placeholder="Enter your password"
+                    data-testid="password"
                     value={loginFormData.password}
                     onChange={addLoginData}
                     onBlur={onBlurHandler}
@@ -96,7 +98,8 @@ export const Login = () => {
                 <input
                     type="submit"
                     className="login"
-                    value="Login" />
+                    value="Login"
+                    data-testid="login-button" />
             </form>
             <div className="already-have-account-wrapper">
                 <p>Do not have an account? <Link className='link-to-register' to="/register">Register</Link></p>
