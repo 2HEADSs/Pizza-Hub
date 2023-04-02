@@ -1,4 +1,4 @@
-.catalog{
+.catalog {
     width: 80%;
     margin: 40px auto;
     display: flex;
@@ -8,9 +8,14 @@
     gap: 40px;
 }
 
-.card-wrapper{
+.card-wrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     gap: 30px;
+}
+
+.my-pizzas-header {
+    font-size: 42px;
+    color: #087b29;
 }
