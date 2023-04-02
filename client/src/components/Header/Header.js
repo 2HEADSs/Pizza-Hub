@@ -21,10 +21,11 @@ export const Header = () => {
             <header className='header'>
                 <Link to="/" className="logo-name-wrapper">
                     <div className="pizza-logo"></div>
-                    <p className='name'>Pizza <span>HUB</span></p>
+                    <p className='name' data-testid="logoTest">Pizza <span>HUB</span></p>
                 </Link>
                 {isAuth && (
-                    <h3 className='user-name'>Hello {user.username}</h3>
+                    <h3 className='user-name'
+                    >Hello {user.username}</h3>
                 )}
                 <nav className='navigation'>
                     <ul role="list">
