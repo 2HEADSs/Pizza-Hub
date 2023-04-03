@@ -23,7 +23,6 @@
 }
 
 .details-info {
-    text-align: start;
     padding: 2%;
     /* height: 100%; */
     margin-top: 0px;
@@ -36,7 +35,7 @@
 }
 
 .details-info h2 span {
-    font-weight: 300;
+    font-weight: 500;
     color: #c16503
 }
 
@@ -75,6 +74,7 @@
     text-align: center;
     right: 2em;
     bottom: 1.5em;
+    transition: all 400ms ease-in-out;
 }
 
 .add-to-favourite-heart i {
@@ -89,15 +89,28 @@
     bottom: 5em;
 }
 
+
+.add-to-favourite-heart:hover {
+    cursor: pointer;
+    scale: 1.5;
+}
+
+.allready-liked {
+    position: absolute;
+    text-align: center;
+    right: 1%;
+    bottom: 2%
+}
+
 .edit-link {
     position: absolute;
     text-align: center;
-    left: 20px;
-    bottom: 20px;
+    left: 1%;
+    bottom: 1%;
     border: 2px solid #087b29;
     border-radius: 8px;
-    font-size: 34px;
-    padding: 0px 20px;
+    font-size: 2.2em;
+    padding: 0px 1.5%;
     text-decoration: none;
     color: #c16503;
     transition: all 300ms ease-in-out;
@@ -107,19 +120,19 @@
     border: 3px solid #c16503;
     color: #087b29;
     font-size: 42px;
-    scale: 1.1;
+    /* scale: 1.1; */
 
 }
 
 .delete-btn {
     position: absolute;
     text-align: center;
-    right: 20px;
-    bottom: 20px;
+    right: 1%;
+    bottom: 1%;
     border: 2px solid #087b29;
     border-radius: 8px;
-    font-size: 34px;
-    padding: 10px 20px;
+    font-size: 2.2em;
+    padding: 1% 1%;
     text-decoration: none;
     color: #c16503;
     transition: all 300ms ease-in-out;
@@ -133,29 +146,11 @@
     cursor: pointer;
 }
 
-
-
-.add-to-favourite-heart {
-    transition: all 300ms ease-in-out;
-}
-
-.add-to-favourite-heart:hover {
-    cursor: pointer;
-    scale: 1.5;
-}
-
-.allready-liked {
-    position: absolute;
-    text-align: center;
-    right: 20px;
-    bottom: 24px
-}
-
 article p.confirm-question {
     position: absolute;
-    bottom: 120px;
-    font-size: 34px;
-    right: 180px;
+    bottom: 15%;
+    font-size: 2em;
+    right: 8%;
 }
 
 .delete-confirm {
@@ -165,7 +160,7 @@ article p.confirm-question {
     bottom: 20px;
     border: 2px solid #087b29;
     border-radius: 8px;
-    font-size: 34px;
+    font-size: 2.2em;
     padding: 10px 20px;
     text-decoration: none;
     color: #c16503;
@@ -187,7 +182,7 @@ article p.confirm-question {
     bottom: 20px;
     border: 2px solid #087b29;
     border-radius: 8px;
-    font-size: 34px;
+    font-size: 2.2em;
     padding: 10px 20px;
     text-decoration: none;
     color: #c16503;
@@ -206,12 +201,12 @@ article p.confirm-question {
 .deleteFromFavourite {
     position: absolute;
     text-align: center;
-    left: 20px;
-    bottom: 20px;
+    left: 1%;
+    bottom: 1%;
     border: 2px solid #087b29;
     border-radius: 8px;
-    font-size: 34px;
-    padding: 10px 20px;
+    font-size: 2em;
+    padding: 0.5% 1%;
     text-decoration: none;
     color: #c16503;
     transition: all 300ms ease-in-out;
@@ -220,7 +215,7 @@ article p.confirm-question {
 .deleteFromFavourite:hover {
     border: 3px solid #c16503;
     color: #087b29;
-    font-size: 42px;
+    font-size: 2.5em;
     scale: 1.02;
     cursor: pointer;
 }
