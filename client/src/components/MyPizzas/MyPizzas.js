@@ -32,7 +32,7 @@ export const MyPizzas = () => {
 
     return (
         <section className="catalog">
-            <h2 className="my-pizzas-header">Your precious</h2>
+            <h2 className="my-pizzas-header" data-testid="precious">Your precious</h2>
             {hasItem && (
                 <article className='card-wrapper'>
                     {myPizzas.map(pizza =>

@@ -1,7 +1,11 @@
-import { render, screen, } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
+import userEvent from '@testing-library/user-event';
+import React from 'react'
 import { Header } from "./Header";
-import { BrowserRouter as Router } from "react-router-dom";
+import { Switch, BrowserRouter as Router, MemoryRouter } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import { HomeList } from "../HomeList/HomeList";
+import { MyPizzas } from "../MyPizzas/MyPizzas";
 
 describe("Header component with user", () => {
 
@@ -27,5 +31,22 @@ describe("Header component with user", () => {
         const userGreeting = screen.getByTestId("userTest");
         expect(userGreeting).toBeInTheDocument();
         expect(userGreeting.textContent).toEqual("Hello 2HEADS");
+    });
+
+
+    it("renders the 'Your precious' heading when user is authenticated and navigates to /my-pizza route", async () => {
+        const route = '/my-pizza'
+        render(
+            
+                <AuthContext.Provider value={mockRealUser}>
+                    <MemoryRouter initialEntries={[route]}>
+                        <MyPizzas />
+                    </MemoryRouter>
+                </AuthContext.Provider>
+            
+        );
+
+        expect(screen.getByTestId('precious')).toBeInTheDocument(route)
+
     });
 });
