@@ -1,0 +1,15 @@
+.radio-btn-wrapper {
+    margin: 0 auto;
+    border: 2px solid green;
+    text-align: center;
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-around;
+    width: 1500px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.checkmark {
+    width: 10px;
+}
