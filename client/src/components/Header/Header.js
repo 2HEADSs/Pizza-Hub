@@ -24,7 +24,7 @@ export const Header = () => {
                     <p className='name' data-testid="logoTest">Pizza <span>HUB</span></p>
                 </Link>
                 {isAuth && (
-                    <h3 className='user-name'
+                    <h3 className='user-name' data-testid="userTest"
                     >Hello {user.username}</h3>
                 )}
                 <nav className='navigation'>
