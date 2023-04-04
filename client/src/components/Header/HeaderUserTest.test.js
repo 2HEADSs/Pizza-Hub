@@ -1,11 +1,8 @@
-import { render, screen, waitFor } from "@testing-library/react";
-import userEvent from '@testing-library/user-event';
+import { fireEvent, render, screen } from "@testing-library/react";
 import React from 'react'
 import { Header } from "./Header";
-import { Switch, BrowserRouter as Router, MemoryRouter } from "react-router-dom";
+import { BrowserRouter as Router, MemoryRouter } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
-import { HomeList } from "../HomeList/HomeList";
-import { MyPizzas } from "../MyPizzas/MyPizzas";
 
 describe("Header component with user", () => {
 
@@ -33,20 +30,19 @@ describe("Header component with user", () => {
         expect(userGreeting.textContent).toEqual("Hello 2HEADS");
     });
 
-
-    it("renders the 'Your precious' heading when user is authenticated and navigates to /my-pizza route", async () => {
-        const route = '/my-pizza'
+    it("renders the 'My Repo's' heading when user is authenticated and navigates to /my-pizza route", () => {
         render(
-            
+            <Router>
                 <AuthContext.Provider value={mockRealUser}>
-                    <MemoryRouter initialEntries={[route]}>
-                        <MyPizzas />
-                    </MemoryRouter>
+                    <Header />
                 </AuthContext.Provider>
-            
-        );
+            </Router>
 
-        expect(screen.getByTestId('precious')).toBeInTheDocument(route)
+        );
+        const myPizzaLink = screen.getByTestId("my-repos");
+        fireEvent.click(myPizzaLink);
+        expect(window.location.href).toEqual("http://localhost/my-pizza");
 
     });
+
 });
