@@ -1,4 +1,3 @@
-
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
@@ -9,6 +8,6 @@ test('render Home link', () => {
       <App />
     </Router>
   );
-  const linkElement = screen.getByText('Home');
-  expect(linkElement).toBeInTheDocument();
+  const homeLink = screen.getByText('Home');
+  expect(homeLink).toBeInTheDocument();
 });
