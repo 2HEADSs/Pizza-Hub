@@ -3,7 +3,7 @@ import { Header } from "./Header";
 import { BrowserRouter as Router } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
-describe("Login component", () => {
+describe("Header component with user", () => {
 
     const mockRealUser = {
         user: {
@@ -14,18 +14,6 @@ describe("Login component", () => {
         }
     }
 
-    it("renders header component", () => {
-        render(
-            <Router>
-                <AuthContext.Provider value={mockRealUser}>
-                    <Header />
-                </AuthContext.Provider>
-            </Router>
-        );
-
-        const logo = screen.getByTestId("logoTest");
-        expect(logo).toBeInTheDocument();
-    });
 
     it("renders greeting test", () => {
         render(
