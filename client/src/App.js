@@ -17,6 +17,7 @@ import { MyFavourite } from './components/MyFavourite/MyFavourite';
 import { GuestGuard } from './guards/GuestGuard';
 import { UserGuard } from './guards/UserGuard';
 import { NotFound } from './components/NotFound/NotFound';
+import { Search } from './components/Search/Search';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
                     <Route path='/' element={<HomeList />} />
                     <Route path='/catalog' element={<Catalog />} />
                     <Route path='/catalog/details/:pizzaId' element={<PizzaDetails />} />
+                    <Route path='/search' element={<Search />} />
                     <Route path='*' element={<NotFound />} />
 
 
