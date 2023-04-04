@@ -38,7 +38,7 @@ export const Header = () => {
                         {isAuth && (
                             <>
                                 <li className='link-nav'>
-                                    <Link className='link' to="/my-pizza">My Repo's</Link>
+                                    <Link className='link' to="/my-pizza" data-testid="my-repos">My Repo's</Link>
                                 </li>
                                 <li className='link-nav'>
                                     <Link className='link' to="/my-favourite">Favourite</Link>
