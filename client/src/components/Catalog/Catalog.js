@@ -23,7 +23,6 @@ export const Catalog = () => {
                     setIsEmpty(true)
                 }
                 setPizza(data);
-                console.log(allPizas);
             });
     }, []);
     return (

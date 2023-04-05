@@ -31,6 +31,7 @@ export const Search = () => {
             });
     }, []);
 
+
     const searchHandler = (e) => {
         e.preventDefault();
 
@@ -54,13 +55,11 @@ export const Search = () => {
             setSearchResult(searchedPizza
                 .filter(pizza => pizza.name.toLowerCase().includes(searchData.name.toLowerCase())));
         }
-
     }
 
     const addSearchData = (e) => {
         setsearchData({ ...searchData, [e.target.name]: e.target.value });
     }
-
     return (
         <>
             <section className='serch-section'>
@@ -115,6 +114,7 @@ export const Search = () => {
                         <h1 className='no-server-content-header'>There is nothing to show!!!</h1>
                     )
                 }
+
             </section>
         </>
     )
