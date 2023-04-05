@@ -10,14 +10,10 @@ export const Search = () => {
     const [loaded, setLoaded] = useState(true);
     const [hasItems, setHasItems] = useState(false);
     const [isEmpty, setIsEmpty] = useState(false);
+    const [searchResult, setSearchResult] = useState({});
     const [searchData, setsearchData] = useState({
         name: '',
-        type: 'Tasty',
-        ingrediants: '',
-        prepTime: '',
-        cookTime: '',
-        img: '',
-        recipe: ''
+        type: '',
     });
     useEffect(() => {
         pizzaService.getAll()
@@ -31,11 +27,27 @@ export const Search = () => {
                     setIsEmpty(true)
                 }
                 setsearchedPizza(data);
+                setSearchResult(data)
             });
     }, []);
 
     const searchHandler = (e) => {
         e.preventDefault();
+        // if (searchData.type !== "") {
+        //     setSearchResult(searchedPizza.filter(pizza => pizza.type === searchData.type));
+        //     if (searchData.name !== "") {
+        //         console.log(searchData.name);
+        //         // setSearchResult(searchResult.some(pizza => pizza.name.includes(searchData.name)));
+        //     }
+        // }
+        console.log(searchData);
+
+    }
+
+    const addSearchData = (e) => {
+        setsearchData({ ...searchData, [e.target.name]: e.target.value });
+        console.log(e.target.name);
+        console.log(e.target.value);
     }
 
     return (
@@ -47,18 +59,23 @@ export const Search = () => {
 
                         <div className='search-name-wrapper'>
                             <label htmlFor="name">Search by name:</label>
-                            <input type="text" />
+                            <input type="text"
+                                name='name'
+                                value={searchData.name}
+                                onChange={addSearchData} />
                         </div>
 
                         <div className='search-type-wrapper'>
                             <label htmlFor="type">Search by type:</label>
                             <select className="search-type"
-                                name="type">
-                                <option value="no-value"></option>
-                                <option value="Tasty">Tasty</option>
-                                <option value="Whole grain">Whole grain</option>
-                                <option value="Vegan">Vegan</option>
-                                <option value="Gluten free">Gluten free</option>
+                                name="type" value={searchData.type}
+                                onChange={addSearchData}
+                            >
+                                <option onChange={addSearchData} value="">No prefer</option>
+                                <option onChange={addSearchData} value="Tasty">Tasty</option>
+                                <option onChange={addSearchData} value="Whole grain">Whole grain</option>
+                                <option onChange={addSearchData} value="Vegan">Vegan</option>
+                                <option onChange={addSearchData} value="Gluten free">Gluten free</option>
                             </select>
                         </div>
 
@@ -70,7 +87,7 @@ export const Search = () => {
                 {
                     hasItems && (
                         <article className='card-wrapper'>
-                            {searchedPizza.map(pizza =>
+                            {searchResult.map(pizza =>
                                 <SinglePizza key={pizza._id} {...pizza} />
                             )}
                         </article>

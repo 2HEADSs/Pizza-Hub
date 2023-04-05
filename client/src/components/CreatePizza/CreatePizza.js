@@ -41,7 +41,6 @@ export const CreatePizza = () => {
         if (response?.message) {
             return setErrors(state => ({ ...state, ["serverError"]: "All fields must be fulfilled!!!" }));
 
-            // return setErrors(state => ({ ...state, ["serverError"]: response.message.split(": ")[2].split(", ")[0] }));
         };
 
         if (response?._id) {
