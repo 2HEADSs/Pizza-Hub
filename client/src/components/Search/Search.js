@@ -6,7 +6,7 @@ import { Loading } from '../Loading/Loading';
 
 
 export const Search = () => {
-    const [searchedPizza, setsearchedPizza] = useState({});
+    const [searchedPizza, setsearchedPizza] = useState([]);
     const [loaded, setLoaded] = useState(true);
     const [hasItems, setHasItems] = useState(false);
     const [isEmpty, setIsEmpty] = useState(false);
@@ -33,21 +33,32 @@ export const Search = () => {
 
     const searchHandler = (e) => {
         e.preventDefault();
-        // if (searchData.type !== "") {
-        //     setSearchResult(searchedPizza.filter(pizza => pizza.type === searchData.type));
-        //     if (searchData.name !== "") {
-        //         console.log(searchData.name);
-        //         // setSearchResult(searchResult.some(pizza => pizza.name.includes(searchData.name)));
-        //     }
-        // }
-        console.log(searchData);
+
+        if (searchData.type === "" && searchData.name === "") {
+            setSearchResult(searchedPizza);
+        }
+
+        if (searchData.type !== "" && searchData.name === "") {
+            setSearchResult(searchedPizza
+                .filter(pizza => pizza.type === searchData.type));
+        }
+
+        if (searchData.type !== "" && searchData.name !== "") {
+            setSearchResult(searchedPizza
+                .filter(pizza => pizza.type === searchData.type &&
+                    pizza.name.toLowerCase()
+                        .includes(searchData.name.toLowerCase())));
+        }
+
+        if (searchData.type === "" && searchData.name !== "") {
+            setSearchResult(searchedPizza
+                .filter(pizza => pizza.name.toLowerCase().includes(searchData.name.toLowerCase())));
+        }
 
     }
 
     const addSearchData = (e) => {
         setsearchData({ ...searchData, [e.target.name]: e.target.value });
-        console.log(e.target.name);
-        console.log(e.target.value);
     }
 
     return (

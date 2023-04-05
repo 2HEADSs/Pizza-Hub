@@ -7,7 +7,7 @@ import { SinglePizza } from '../SinglePizza/SinglePizza';
 
 
 export const Catalog = () => {
-    const [allPizas, setPizza] = useState({});
+    const [allPizas, setPizza] = useState([]);
     const [loaded, setLoaded] = useState(true);
     const [hasItems, setHasItems] = useState(false)
     const [isEmpty, setIsEmpty] = useState(false)
@@ -23,6 +23,7 @@ export const Catalog = () => {
                     setIsEmpty(true)
                 }
                 setPizza(data);
+                console.log(allPizas);
             });
     }, []);
     return (
