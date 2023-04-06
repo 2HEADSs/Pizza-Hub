@@ -1,5 +1,6 @@
 
-const baseUrl = 'http://localhost:3030';
+// const baseUrl = 'http://localhost:3030';
+const baseUrl = 'https://expres-server.onrender.com';
 
 export const getAll = async () => {
     try {
