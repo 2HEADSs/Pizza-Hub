@@ -5,6 +5,7 @@ const User = require('../models/User');
 const secret = 'q-asd231adfas12321kl';
 
 async function register(email, username, password) {
+    console.log(email, username, password);
     const existing = await User.findOne({ email })
     if (existing) {
         throw new Error('Email is already taken!!!')
