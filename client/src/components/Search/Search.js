@@ -8,9 +8,9 @@ import { Loading } from '../Loading/Loading';
 export const Search = () => {
     const [searchedPizza, setsearchedPizza] = useState([]);
     const [loaded, setLoaded] = useState(true);
-    const [hasItems, setHasItems] = useState(false);
+    const [hasNoSearchedResult, sethasNoSearchedResult] = useState(false)
     const [isEmpty, setIsEmpty] = useState(false);
-    const [searchResult, setSearchResult] = useState({});
+    const [searchResult, setSearchResult] = useState([]);
     const [searchData, setsearchData] = useState({
         name: '',
         type: '',
@@ -20,7 +20,6 @@ export const Search = () => {
             .then(data => {
                 if (data.length > 0) {
                     setLoaded(false)
-                    setHasItems(true)
                     setIsEmpty(false)
                 } else {
                     setLoaded(false)
@@ -34,7 +33,7 @@ export const Search = () => {
 
     const searchHandler = (e) => {
         e.preventDefault();
-
+        sethasNoSearchedResult(true)
         if (searchData.type === "" && searchData.name === "") {
             setSearchResult(searchedPizza);
         }
@@ -55,11 +54,15 @@ export const Search = () => {
             setSearchResult(searchedPizza
                 .filter(pizza => pizza.name.toLowerCase().includes(searchData.name.toLowerCase())));
         }
+
     }
 
     const addSearchData = (e) => {
         setsearchData({ ...searchData, [e.target.name]: e.target.value });
-    }
+    };
+
+//todo style loader and style no result
+
     return (
         <>
             <section className='serch-section'>
@@ -94,16 +97,15 @@ export const Search = () => {
                 </article>
             </section>
             <section className='search-result'>
-                {
-                    hasItems && (
-                        <article className='card-wrapper'>
-                            {searchResult.map(pizza =>
-                                <SinglePizza key={pizza._id} {...pizza} />
-                            )}
-                        </article>
 
-                    )
-                }
+                <article className='card-wrapper'>
+                    {searchResult.map(pizza =>
+                        <SinglePizza key={pizza._id} {...pizza} />
+                    )}
+                </article>
+                {searchResult.length === 0 && hasNoSearchedResult && (
+                    <h1>No result</h1>
+                )}
                 {
                     loaded && (
                         <Loading />
