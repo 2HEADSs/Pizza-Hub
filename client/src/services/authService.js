@@ -1,4 +1,5 @@
-const baseUrl = 'http://localhost:3030/auth';
+const baseUrl = 'https://expres-server.onrender.com';
+
 
 
 export const authLogin = async (data) => {
