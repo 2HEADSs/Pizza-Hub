@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import * as pizzaService from '../../services/pizzaService'
 
 import { Loading } from '../Loading/Loading';
-import { SinglePizza } from '../SinglePizza/SinglePizza';
+import SinglePizza from '../SinglePizza/SinglePizza';
 
 
 export const Catalog = () => {

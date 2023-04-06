@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 
 import './MyFavourite.css'
 import * as pizzaService from '../../services/pizzaService'
-import { SinglePizza } from '../SinglePizza/SinglePizza';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import { Loading } from "../Loading/Loading";
+import SinglePizza from "../SinglePizza/SinglePizza";
 
 
 export const MyFavourite = () => {
