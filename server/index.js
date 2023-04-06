@@ -14,7 +14,7 @@ startServer();
 async function startServer() {
     initDB();
     app.use(express.json());
-    // app.use(express.urlencoded({ extended: false }));
+    app.use(express.urlencoded({ extended: false }));
     app.use(cors())
     app.use(session())
     // trimbody
