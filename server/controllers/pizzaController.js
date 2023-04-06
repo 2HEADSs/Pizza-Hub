@@ -3,6 +3,7 @@ const pizzaController = require("express").Router();
 const { getAll, create, getById, getByUserId, getMyLikes, likePizza, update, deleteById, deleteLikes } = require("../services/pizzaService");
 
 pizzaController.get("/", async (req, res) => {
+    console.log(`${req} pizzaController log`);
     try {
         const pizza = await getAll();
         res.status(200).json(pizza);
