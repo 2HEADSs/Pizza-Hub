@@ -1,6 +1,6 @@
 
 // const baseUrl = 'http://localhost:3030';
-const baseUrl = 'https://expres-server.onrender.com';
+const baseUrl = 'https://pizza-hub-express.onrender.com';
 
 export const getAll = async () => {
     try {
