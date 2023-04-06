@@ -3,7 +3,6 @@ const authController = require('express').Router();
 const { login, register } = require('../services/userService');
 
 authController.post('/register', async (req, res) => {
-    console.log(`${req.body.password} register logs`);
     try {
         if (req.body.password !== req.body.repass) {
             throw new Error('Password dismatch');
