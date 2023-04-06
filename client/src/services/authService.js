@@ -1,5 +1,5 @@
-// const baseUrl = 'https://pizza-hub-express.onrender.com';
-const baseUrl = 'http://localhost:3030';
+const baseUrl = 'https://pizza-hub-express.onrender.com/auth';
+// const baseUrl = 'http://localhost:3030';
 
 
 
