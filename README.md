@@ -45,5 +45,4 @@ $ npm install
 
 $ npm start
 
-And the server will start listening at http://localhost:3030.
 
