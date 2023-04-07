@@ -1,6 +1,6 @@
 # Pizza-Hub
 
-SPA  made for SoftUni-React course, created with REACT as FE, Node.js as BE and MongoDB as DB.
+SPA created with REACT as FE, Node.js as BE and MongoDB as DB.
 
 ![](/HomePage.jpg)
 
