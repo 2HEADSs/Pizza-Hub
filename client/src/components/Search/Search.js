@@ -61,7 +61,7 @@ export const Search = () => {
         setsearchData({ ...searchData, [e.target.name]: e.target.value });
     };
 
-    //todo style loader and style no result
+
 
     return (
         <>

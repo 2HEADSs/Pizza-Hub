@@ -14,7 +14,6 @@ async function getById(id) {
 };
 
 async function create(data) {
-    //TODO add user(creator) to pizza
     return Pizza.create(data)
 };
 

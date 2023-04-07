@@ -44,10 +44,8 @@ pizzaController.post("/", async (req, res) => {
     try {
         const data = Object.assign({ _ownerId: req.user._id }, req.body)
         const pizza = await create(data);
-        //todo error
         res.json(pizza)
     } catch (error) {
-        // const message = parseError(err)
         console.log(error);
         res.status(400).json({ error: error.message })
     }
