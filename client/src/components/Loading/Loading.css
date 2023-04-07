@@ -1,8 +1,13 @@
+.loader-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .loading-header {
     font-size: 42px;
     color: #c16503;
-}
 
+}
 .lds-ellipsis {
     display: inline-block;
     position: relative;

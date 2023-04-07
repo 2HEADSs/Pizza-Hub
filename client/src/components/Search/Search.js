@@ -61,7 +61,7 @@ export const Search = () => {
         setsearchData({ ...searchData, [e.target.name]: e.target.value });
     };
 
-//todo style loader and style no result
+    //todo style loader and style no result
 
     return (
         <>
@@ -104,19 +104,20 @@ export const Search = () => {
                     )}
                 </article>
                 {searchResult.length === 0 && hasNoSearchedResult && (
-                    <h1>No result</h1>
+                    <h2 className='search-result_no-result'>No result</h2>
                 )}
                 {
                     loaded && (
-                        <Loading />
+                        <section className='search-result_search-loader'>
+                            <Loading />
+                        </section>
                     )
                 }
                 {
                     isEmpty && (
-                        <h1 className='no-server-content-header'>There is nothing to show!!!</h1>
+                        <h2 className='no-server-content-header'>There is nothing to show!!!</h2>
                     )
                 }
-
             </section>
         </>
     )

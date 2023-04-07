@@ -61,3 +61,16 @@
     margin-bottom: 70px;
     /* margin-top: 50px; */
 }
+
+
+.search-result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-result_no-result {
+    margin-bottom: 32px;
+    color: #c16503;
+    font-size: 42px;
+}
