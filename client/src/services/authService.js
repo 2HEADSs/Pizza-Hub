@@ -1,6 +1,6 @@
 let baseUrl = ''
 if (process.env.NODE_ENV === "production") {
-    baseUrl = 'https://pizza-hub-express.onrender.com';
+    baseUrl = 'https://pizza-hub-express.onrender.com/auth';
 
 } else {
     baseUrl = 'http://localhost:3030';
