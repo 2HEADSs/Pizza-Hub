@@ -31,7 +31,7 @@ TechStack
 
 Setup
 
-To run app, in directory "CLIENT",  open inside cmd and run:
+To run app, in directory "/client",  open inside cmd and run:
 ```
 $ npm install
 
@@ -42,7 +42,7 @@ Which opens the app at http://localhost:3000 in your browser.
 
 
 Also should run REST_API server.
-Open directory "server", open inside cmd and run:
+Open directory "/server", open inside cmd and run:
 ```
 $ npm install
 
