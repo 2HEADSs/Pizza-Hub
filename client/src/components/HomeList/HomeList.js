@@ -5,7 +5,7 @@ import { Loading } from '../Loading/Loading';
 import SinglePizza from '../SinglePizza/SinglePizza';
 
 export const HomeList = () => {
-    const [allPizas, setPizza] = useState({});
+    const [allPizas, setPizza] = useState([]);
     const [loaded, setLoaded] = useState(true);
     const [hasItems, setHasItems] = useState(false)
     const [isEmpty, setIsEmpty] = useState(false)
@@ -20,8 +20,7 @@ export const HomeList = () => {
                     setLoaded(false)
                     setIsEmpty(true)
                 }
-                setPizza(data.splice(0, 5));
-
+                setPizza(data.splice(-5).reverse());
             })
     }, []);
 
