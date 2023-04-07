@@ -38,6 +38,9 @@ $ npm install
 $ npm start
 ```
 Which opens the app at http://localhost:3000 in your browser.
+
+
+
 Also should run REST_API server.
 Open directory "server", open inside cmd and run:
 ```
@@ -45,4 +48,5 @@ $ npm install
 
 $ npm start
 ```
+Which opens the app at http://localhost:3303 in your browser.
 
