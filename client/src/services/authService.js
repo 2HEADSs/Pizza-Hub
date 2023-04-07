@@ -1,5 +1,12 @@
-const baseUrl = 'https://pizza-hub-express.onrender.com/auth';
-// const baseUrl = 'http://localhost:3030';
+let baseUrl = ''
+if (process.env.NODE_ENV === "production") {
+    baseUrl = 'https://pizza-hub-express.onrender.com';
+    console.log(process.env.NODE_ENV);
+
+} else {
+    baseUrl = 'http://localhost:3030';
+    console.log(process.env.NODE_ENV);
+}
 
 
 
