@@ -1,16 +1,14 @@
 let baseUrl = ''
 if (process.env.NODE_ENV === "production") {
-    baseUrl = 'https://pizza-hub-express.onrender.com/auth';
-
+    baseUrl = 'https://pizza-hub-express.onrender.com';
 } else {
     baseUrl = 'http://localhost:3030';
 }
 
 
-
 export const authLogin = async (data) => {
     try {
-        const response = await fetch(`${baseUrl}/login`, {
+        const response = await fetch(`${baseUrl}/auth/login`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
@@ -31,7 +29,7 @@ export const authLogin = async (data) => {
 
 export const authRegister = async (data) => {
     try {
-        const response = await fetch(`${baseUrl}/register`, {
+        const response = await fetch(`${baseUrl}/auth/register`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
