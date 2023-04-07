@@ -35,7 +35,7 @@ export const EditPizza = () => {
             .then(result => {
                 setPizzaData(result)
             })
-    }, [pizzaId])
+    }, [])
 
 
 

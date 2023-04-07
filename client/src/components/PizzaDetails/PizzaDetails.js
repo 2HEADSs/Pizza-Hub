@@ -24,11 +24,13 @@ export const PizzaDetails = () => {
     useEffect(() => {
         pizzaService.getOnePizza(pizzaId)
             .then(result => {
-                if (result.length > 0) {
+                if (result?._id) {
                     setLoaded(false)
                     setAlreadyLiked(result?.likes?.includes(user?._id));
                 } else {
-                    setLoaded(false)
+                    setLoaded(false);
+                    navigate(`*`);
+
                 }
                 setPizza(result)
             })
@@ -98,7 +100,7 @@ export const PizzaDetails = () => {
                             <h3 className="allready-liked">Already liked! </h3>
 
                         )}
-                        {(!alreadyLiked && hasUser && alreadyLiked !== undefined && !isOwner) && (
+                        {(!alreadyLiked && hasUser && !isOwner) && (
                             <>
 
                                 <a className="add-to-favourite-heart" onClick={likeHandler} onMouseEnter={() => setIsShown(true)}
@@ -109,7 +111,7 @@ export const PizzaDetails = () => {
                                 )}
                             </>
                         )}
-                        {(alreadyLiked && hasUser && alreadyLiked !== undefined && !isOwner) && (
+                        {(alreadyLiked && hasUser && !isOwner) && (
                             <>
                                 <button onClick={deleteFromFavourite} className="deleteFromFavourite">Delete from favourite</button>
 
