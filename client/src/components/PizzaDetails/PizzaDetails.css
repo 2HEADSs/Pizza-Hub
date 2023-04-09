@@ -41,6 +41,10 @@
 
 .details-info h3 {
     text-align: center;
+    margin-top: 20px;
+}
+.owner-name{
+    color: #c16503;
 }
 
 .details-info p {

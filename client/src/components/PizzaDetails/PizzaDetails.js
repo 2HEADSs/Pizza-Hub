@@ -79,15 +79,15 @@ export const PizzaDetails = () => {
                     <img src={pizza.img} alt={pizza.name} className="details-img" />
                     <article className="details-info">
 
-                        <h2>Name: <span>{pizza.name}</span></h2>
-                        <h3>Made by: <span>{pizza?._ownerId?.username}</span></h3>
-                        <p>Type: <span>{pizza.type}</span></p>
-                        <p>Ingrediants: <span>{pizza.ingrediants}</span></p>
+                        <h2> <span>{pizza.name}</span></h2>
+                        <h3>Made by <span className="owner-name">{pizza?._ownerId?.username}</span></h3>
+                        <p>Type <span>{pizza.type}</span></p>
+                        <p>Ingrediants <span>{pizza.ingrediants}</span></p>
                         <div className="times">
                             <i className="fa-regular fa-clock"></i>
-                            <p>Prep: <span>{pizza.prepTime} minutes</span></p>
+                            <p>Prep <span>{pizza.prepTime} minutes</span></p>
                             <i className="fa-regular fa-clock"></i>
-                            <p>Cook: <span>{pizza.cookTime} minutes</span></p>
+                            <p>Cook <span>{pizza.cookTime} minutes</span></p>
                         </div>
                         <p>How to prepare: <span>{pizza.recipe}</span></p>
 
