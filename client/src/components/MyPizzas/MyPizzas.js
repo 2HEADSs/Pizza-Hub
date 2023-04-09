@@ -9,7 +9,7 @@ import SinglePizza from "../SinglePizza/SinglePizza";
 
 
 export const MyPizzas = () => {
-    const [myPizzas, setMyPizzas] = useState({});
+    const [myPizzas, setMyPizzas] = useState([]);
     const [loaded, setLoaded] = useState(true);
     const [hasItem, setHasItems] = useState(false)
     const [isEmpty, setIsEmpty] = useState(false)
