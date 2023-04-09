@@ -9,7 +9,7 @@ import SinglePizza from "../SinglePizza/SinglePizza";
 
 
 export const MyFavourite = () => {
-    const [myLikedPizzas, setmyLikedPizzas] = useState({});
+    const [myLikedPizzas, setmyLikedPizzas] = useState([]);
     const [loaded, setLoaded] = useState(true);
     const [hasItem, setHasItems] = useState(false)
     const [isEmpty, setIsEmpty] = useState(false)
