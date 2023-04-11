@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require('./middlewares/cors')
-import { connectionString } from './connectionString'
+const { connectionString } = require("./connectionString");
 const { mongoose } = require("mongoose");
 const router = require("./routes");
 const session = require("./middlewares/session");
@@ -20,9 +20,5 @@ async function startServer() {
     app.use(session())
     // trimbody
     app.use(router);
-    const PORT = process.env.PORT || 3030;
-    app.listen(PORT, () => {
-        console.log(process.env.PORT);
-        console.log(`Server started on port ${PORT}`);
-    });
+    app.listen("3030", () => console.log("REST listening on port 3030"));
 }
