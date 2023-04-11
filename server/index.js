@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require('./middlewares/cors')
-const { connectionString } = require("./connectionString");
+import { connectionString } from './connectionString'
 const { mongoose } = require("mongoose");
 const router = require("./routes");
 const session = require("./middlewares/session");
@@ -23,6 +23,6 @@ async function startServer() {
     const PORT = process.env.PORT || 3030;
     app.listen(PORT, () => {
         console.log(process.env.PORT);
-      console.log(`Server started on port ${PORT}`);
+        console.log(`Server started on port ${PORT}`);
     });
 }
