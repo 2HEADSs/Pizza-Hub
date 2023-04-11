@@ -20,5 +20,9 @@ async function startServer() {
     app.use(session())
     // trimbody
     app.use(router);
-    app.listen("3030", () => console.log("REST listening on port 3030"));
+    const PORT = process.env.PORT || 3030;
+    app.listen(PORT, () => {
+        console.log(process.env.PORT);
+      console.log(`Server started on port ${PORT}`);
+    });
 }
