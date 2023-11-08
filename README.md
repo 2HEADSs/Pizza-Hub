@@ -6,7 +6,7 @@ SPA created with REACT as FE, Node.js as BE and MongoDB as DB.
 
 Informaton:
 
-The app works as platform for share pizza recepies with basic functionality with part of imittation og Git-Hub.
+The app works as platform for share pizza recepies with basic functionality with part of imittation of Git-Hub.
 Every user(not logged in) have access to : Home , All Repo's (catalog), Search, Details, Register and Login.
 Evry logged in user have acces to: Home, All Repo's (catalog), Search, My epo's(if has liked pizza), Add Pizza, Edit(if has own pizzas for edit) and Logout.
 Every logged in user can like Pizzas and they automaticly are added to My Likes.
